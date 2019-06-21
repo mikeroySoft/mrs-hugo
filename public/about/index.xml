@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Abouts on mikeroySoft.com</title>
+    <link>http://mikeroysoft.com/about/</link>
+    <description>Recent content in Abouts on mikeroySoft.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Jun 2019 20:36:20 -0700</lastBuildDate>
+    
+	<atom:link href="http://mikeroysoft.com/about/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About_me</title>
+      <link>http://mikeroysoft.com/about/about_me/</link>
+      <pubDate>Sat, 01 Jun 2019 20:36:20 -0700</pubDate>
+      
+      <guid>http://mikeroysoft.com/about/about_me/</guid>
+      <description>A wise man once told me that success is part opportunity, part timing, part preparation, and finally, part luck. I add to that list risk and willingness to embrace change.
+Coming from a unique and diverse background, I often struggled with a career path that didn’t quite fit who I was. I was very happy as the SysAdmin (Systems Administrator) at a small data center in Toronto, when a unique opportunity came across my lap. That opportunity quickly fell through: the company presented me a false view of their own stability and went belly-up two months after I relocated from Toronto, about 20 days from Christmas. So, I went work for a local Apple support center.
+But in 2009, opportunity happened. A teammate of mine got an interview at VMware for a new Fusion support team, and they needed Apple experts. A thorough interview later, they offered me a position, and we moved to create what I consider the best support team with which I’ve had the pleasure of working with.
+We not only had a strong technical group (most of whom by now have moved on to more technical roles in and outside of VMware), but we also had a synergy that I’ve not seen outside of VMware Global Support.</description>
+    </item>
+    
+  </channel>
+</rss>

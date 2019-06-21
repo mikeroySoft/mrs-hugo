@@ -1,0 +1,88 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "mikeroySoft.com"
+theme                      = "AllinOne"
+#theme = "hugo-theme-hello-friend-ng"
+
+
+builddrafts                = true
+canonifyurls               = true
+contentdir                 = "content"
+layoutdir                  = "layouts"
+publishdir                 = "public"
+enableEmoji                = true
+hasCJKLanguage             = true
+summaryLength              = 200
+Paginate                   = 3
+
+
+
+pygmentsuseclasses         = true
+
+
+[permalinks]
+  blog                     = "blog/:year-:month/:slug/"
+
+
+[taxonomies]
+  tag                      = "tags"
+  series                   = "series"
+  category                 = "categories"
+
+
+[menu]
+  [[menu.main]]
+    name                   = "Blog"
+    weight                 = -120
+    identifier             = "blog"
+    url                    = "blog/"  
+
+#  [[menu.main]]
+#    name                   = "Moment"
+#    weight                 = -110
+#    identifier             = "moment"
+#    url                    = "moment/" 
+
+  [[menu.main]]
+    name                   = "About"
+    weight                 = -100
+    identifier             = "about"
+    url                    = "about/"  
+
+ 
+
+[params]
+  faviconfile              = "img/mrsfav.png"               # from static/
+  avatar                   = "img/profile.png"             # path to image in static dir e.g img/avatar.png 
+  author                   = "Michael Roy"
+  description              = ["Product Manager", "Solving problems so people can solve more problems"]           # appears in the site header when set to a non-empty string
+  welcome_head             = "mikeroySoft.com"
+  welcome_word             = "Just me ranting about Software"
+
+  latestpostscount         = 5                             # how many posts to display on the home page
+  bloggroupby              = 'month'
+  dateform                 = "Jan 2, 2006"
+  dateformfull             = "2006-01-02  Monday  15:04:05"
+  noshowreadtime           = false                         # if true, don't show "<x> minutes read" in posts
+
+  # slides
+  slidesDirPath            = "themes/AllinOne/static/img/header-slides"    # path to image in local dir (path for hugo)
+  slidesDirPathURL         = "img/header-slides"    # path to image in static dir (for static pages)
+
+  # highlighting 
+  highlightjs              = true
+
+  # latex
+  katex                    = true
+
+  # links
+  #email                    = "you@email.com"
+  github                   = "//github.com/mikeroySoft"
+  linkedin                 = "//linkedin.com/in/mikeroysoft/"
+  twitter                  = "//twitter.com/mikeroySoft" 
+  instagram                = "//instagram.com/mikeroySoft"
+  include_rss              = true                          # include RSS <link> tag in <head> and show RSS icon
+  
+  # analytics
+#  googleAnalytics          = "your-google-analytic-id"
+    

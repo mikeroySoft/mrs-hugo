@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://mikeroysoft.com/derpurl/</loc>
+    <lastmod>2019-06-01T20:43:31-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mikeroysoft.com/derpurl/thing/</loc>
+    <lastmod>2019-06-01T20:43:31-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mikeroysoft.com/</loc>
+    <lastmod>2019-06-01T20:43:31-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mikeroysoft.com/derpurl/derpurl/</loc>
+    <lastmod>2019-06-01T20:43:09-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mikeroysoft.com/derp/</loc>
+    <lastmod>2019-06-01T20:42:57-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mikeroysoft.com/derp/derpurl/</loc>
+    <lastmod>2019-06-01T20:42:57-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mikeroysoft.com/about/about_me/</loc>
+    <lastmod>2019-06-01T20:36:20-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mikeroysoft.com/about/</loc>
+    <lastmod>2019-06-01T20:36:20-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mikeroysoft.com/blog/</loc>
+    <lastmod>2019-06-01T20:35:03-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mikeroysoft.com/blog/2019-06/new_blog/</loc>
+    <lastmod>2019-06-01T20:35:03-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mikeroysoft.com/posts/</loc>
+    <lastmod>2019-06-01T20:33:36-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mikeroysoft.com/posts/blog/test_blog/</loc>
+    <lastmod>2019-06-01T20:33:36-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mikeroysoft.com/posts/first-post/</loc>
+    <lastmod>2019-06-01T18:17:59-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mikeroysoft.com/tags/</loc>
+    <lastmod>2019-06-01T18:17:59-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mikeroysoft.com/tags/first/</loc>
+    <lastmod>2019-06-01T18:17:59-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mikeroysoft.com/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mikeroysoft.com/series/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

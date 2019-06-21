@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>first on mikeroySoft.com</title>
+    <link>http://mikeroysoft.com/tags/first/</link>
+    <description>Recent content in first on mikeroySoft.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Jun 2019 18:17:59 -0700</lastBuildDate>
+    
+	<atom:link href="http://mikeroysoft.com/tags/first/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>First Post</title>
+      <link>http://mikeroysoft.com/posts/first-post/</link>
+      <pubDate>Sat, 01 Jun 2019 18:17:59 -0700</pubDate>
+      
+      <guid>http://mikeroysoft.com/posts/first-post/</guid>
+      <description>Frist Toast! Just switching blogging platforms again&amp;hellip; because why not&amp;hellip; Go seems all the rage so we&amp;rsquo;re trying out Hugo. I like the different workflow&amp;hellip; I get to use git to keep just about everything under control, and it looks like it should scale well (cuz I&amp;rsquo;m blowin up, you see&amp;hellip;;).
+So here&amp;rsquo;s some initial content to see how this thing goes&amp;hellip; if so, I&amp;rsquo;ll go through the exercize of copying over all my old content, and take things from there.</description>
+    </item>
+    
+  </channel>
+</rss>
