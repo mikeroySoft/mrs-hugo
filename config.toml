@@ -2,7 +2,6 @@ baseURL = "/"
 languageCode = "en-us"
 title = "mikeroySoft.com"
 theme                      = "AllinOne"
-#theme = "hugo-theme-hello-friend-ng"
 
 
 builddrafts                = true
