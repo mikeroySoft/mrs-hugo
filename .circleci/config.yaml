@@ -13,6 +13,6 @@ jobs:
       - run:
           name: Build the Docker Image
           command: docker build -t $DOCKER_IMAGE:$CIRCLE_TAG .
-      - run:
+      - deploy:
           name: Push the Docker Image
           command: docker push $DOCKER_IMAGE:$CIRCLE_TAG
