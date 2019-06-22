@@ -11,8 +11,8 @@ jobs:
          command: docker login --username $DOCKER_USER --password=$DOCKER_PASS
       - run:
           name: Build the Docker Image
-          command: docker build -t $DOCKER_IMAGE:$CIRCLE_TAG .
+          command: docker build -t $DOCKER_IMAGE:${CIRCLE_TAG} .
       - deploy:
           name: Push the Docker Image
-          command: docker push $DOCKER_IMAGE:$CIRCLE_TAG
+          command: docker push $DOCKER_IMAGE:${CIRCLE_TAG}
 #and this should work?
