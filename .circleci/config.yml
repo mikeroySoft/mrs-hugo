@@ -26,7 +26,6 @@ jobs:
           name: Push the Docker Image
           command: docker push $DOCKER_IMAGE:$CIRCLE_TAG
 
-
   deploy:   
     docker:
       - image: scotwells/helm-docker  #consider changing this in the future
@@ -80,4 +79,3 @@ workflows:
               only: /^v.*/
             branches:
               ignore: /.*/
-
