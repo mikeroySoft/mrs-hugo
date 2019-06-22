@@ -10,7 +10,7 @@ jobs:
       - setup_remote_docker
       - run:
          name: Login to the Docker Registry
-         command: docker login --username ${DOCKER_USER} --password=${DOCKER_PASS}
+         command: docker login --username $DOCKER_USER --password=$DOCKER_PASS
 
       # checkout the repo
       - checkout
@@ -20,7 +20,13 @@ jobs:
           name: Pull in the git submodules
           command: git submodule sync && git submodule update --init
 
-      # build with Hugo
+    # build with Hugo
+    # This gets done in the Dockerfile as a multi-stage build
+    # so there's nothing to do here
+    # We _could_ do it here instead, and maybe we should, 
+    # but it seems to make sense to keep the logic of building, 
+    # assembling and deploying sort of independant... who knows, I just work here.
+
     # - run: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
 
       # test the generated html
@@ -31,13 +37,67 @@ jobs:
     #        --empty-alt-ignore --disable-external
       
       # build the docker image
-      # to do: figure out how to get $CIRCLE_TAG to work
+      # to do: figure out how to get $CIRCLE_TAG to work... maybe it does now?
       - run:
           name: Build the Docker Image
-          command: docker build -t ${DOCKER_IMAGE}:latest .
+          command: docker build -t $DOCKER_IMAGE:$CIRCLE_TAG .
       
       # push the image to the private registry
       # to do: figure out how to get $CIRCLE_TAG to work
-      - deploy:
+      - run:
           name: Push the Docker Image
-          command: docker push ${DOCKER_IMAGE}:latest
+          command: docker push $DOCKER_IMAGE:$CIRCLE_TAG
+  
+  # new stuff... deploy using helm to DO
+  deploy:
+    docker:
+      - image: scotwells/helm-docker  #consider changing this in the future
+    steps:
+      - checkout
+      - run:
+          name: Setup K8s Cluster Config
+          command: |
+            echo $KUBERNETES_CA_CERT | base64 -d > ca.crt
+            kubectl config set-cluster default \
+              --server=$KUBERNETES_SERVER_URL \
+              --embed-certs=true \
+              --certificate-authority=ca.crt
+      - run:
+          name: Setup K8s Credentials Config
+          command: kubectl config set-credentials default --token=$KUBERNETES_AUTH_TOKEN
+      - run:
+          name: Setup K8s Context Config
+          command: kubectl config set-context default --cluster=default --user=default
+      - run:
+          name: Set K8s Context
+          command: kubectl config use-context default
+
+      # deploy the application using Helm
+      - run:
+          name: Deploy application with Helm
+          command: |
+            helm upgrade $KUBERNETES_DEPLOY_NAME-production ./chart \
+              --namespace=$KUBERNETES_NAMESPACE \
+              --wait \
+              --install \
+              --values chart/values.yaml \
+              --set image.repository=$DOCKER_IMAGE \
+              --set image.tag=$CIRCLE_TAG
+workflows:
+ version: 2
+ build_and_deploy:
+  jobs:
+    - build:
+        filters:
+          tags:
+          only: /^v.*/
+          branches:
+            ignore: /.*/
+    - deploy:
+        requires:
+          - build
+        filters:
+          tags:
+            only: /^v.*/
+          branches:
+            ignore: /.*/
