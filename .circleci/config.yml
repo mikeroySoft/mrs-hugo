@@ -60,7 +60,6 @@ jobs:
               --values chart/values.yaml \
               --set image.repository=$DOCKER_IMAGE \
               --set image.tag=$CIRCLE_BRANCH
-
 workflows:
   version: 2
   build_and_deploy:
