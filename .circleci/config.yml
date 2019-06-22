@@ -15,6 +15,9 @@ jobs:
       # install git
       - run: apk update && apk add git && apk add docker
 
+      # start docker
+      - run: service docker start
+
       # checkout the repo
       - checkout
 
