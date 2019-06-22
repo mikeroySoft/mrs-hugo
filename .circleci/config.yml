@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build_production:
+  build:
     docker:
       - image: docker:stable-git
     steps:
@@ -44,27 +44,27 @@ jobs:
           command: docker push $DOCKER_IMAGE:$CIRCLE_TAG
 
   # fancy branch building... woo
-#  build_branch:
-  build:
-    docker:
-      # Since Circle CI needs to be able to clone our repository from GitHub,
-      # we need to use a docker image that has the git binary installed
-      # We should consider using a custom-built image for this. 
-      # Maybe that's worth it, maybe not. It's like we need a CI to build
-      # the build images
-      - image: docker:stable-git
-    steps:
-      - checkout
-      - setup_remote_docker
-      - run:
-          name: Login to the Docker Registry
-          command: echo $DOCKER_PASS | docker login --username $DOCKER_USER --password-stdin
-      - run:
-          name: Build the Docker Image
-          command: docker build -t $DOCKER_IMAGE:$CIRCLE_BRANCH .
-      - run:
-          name: Push the Docker Image
-          command: docker push $DOCKER_IMAGE:$CIRCLE_BRANCH
+# #  build_branch:
+#   build:
+#     docker:
+#       # Since Circle CI needs to be able to clone our repository from GitHub,
+#       # we need to use a docker image that has the git binary installed
+#       # We should consider using a custom-built image for this. 
+#       # Maybe that's worth it, maybe not. It's like we need a CI to build
+#       # the build images
+#       - image: docker:stable-git
+#     steps:
+#       - checkout
+#       - setup_remote_docker
+#       - run:
+#           name: Login to the Docker Registry
+#           command: echo $DOCKER_PASS | docker login --username $DOCKER_USER --password-stdin
+#       - run:
+#           name: Build the Docker Image
+#           command: docker build -t $DOCKER_IMAGE:$CIRCLE_BRANCH .
+#       - run:
+#           name: Push the Docker Image
+#           command: docker push $DOCKER_IMAGE:$CIRCLE_BRANCH
 
   # new stuff... deploy using helm to DO
   # let's change this for now
