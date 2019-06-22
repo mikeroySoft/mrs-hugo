@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: mikeroysoft/mrs-hugo:latest
+      - image: docker:stable-git
     steps:
       - checkout
       - setup_remote_docker
