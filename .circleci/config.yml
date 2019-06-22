@@ -14,25 +14,8 @@ jobs:
       - run:
           name: Pull in the git submodules
           command: git submodule sync && git submodule update --init
-
-    # build with Hugo
-    # This gets done in the Dockerfile as a multi-stage build
-    # so there's nothing to do here
-    # We _could_ do it here instead, and maybe we should, 
-    # but it seems to make sense to keep the logic of building, 
-    # assembling and deploying sort of independant... who knows, I just work here.
-
-    # - run: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
-
-      # test the generated html
-    #  - run:
-    #      name: test our generated HTML files
-    #      command: |
-    #        htmlproofer $HUGO_BUILD_DIR --allow-hash-href --check-html \
-    #        --empty-alt-ignore --disable-external
       
-      # build the docker image
-      # to do: figure out how to get $CIRCLE_TAG to work... maybe it does now?
+          # build the docker image    
       - run:
           name: Build the Docker Image
           command: docker build -t $DOCKER_IMAGE:$CIRCLE_TAG .
@@ -43,32 +26,7 @@ jobs:
           name: Push the Docker Image
           command: docker push $DOCKER_IMAGE:$CIRCLE_TAG
 
-  # fancy branch building... woo
-# #  build_branch:
-#   build:
-#     docker:
-#       # Since Circle CI needs to be able to clone our repository from GitHub,
-#       # we need to use a docker image that has the git binary installed
-#       # We should consider using a custom-built image for this. 
-#       # Maybe that's worth it, maybe not. It's like we need a CI to build
-#       # the build images
-#       - image: docker:stable-git
-#     steps:
-#       - checkout
-#       - setup_remote_docker
-#       - run:
-#           name: Login to the Docker Registry
-#           command: echo $DOCKER_PASS | docker login --username $DOCKER_USER --password-stdin
-#       - run:
-#           name: Build the Docker Image
-#           command: docker build -t $DOCKER_IMAGE:$CIRCLE_BRANCH .
-#       - run:
-#           name: Push the Docker Image
-#           command: docker push $DOCKER_IMAGE:$CIRCLE_BRANCH
 
-  # new stuff... deploy using helm to DO
-  # let's change this for now
-#  deploy_production:
   deploy:   
     docker:
       - image: scotwells/helm-docker  #consider changing this in the future
@@ -92,7 +50,7 @@ jobs:
           name: Set K8s Context
           command: kubectl config use-context default
 
-      # deploy the application using Helm
+      # And finally, actually deploy the application using Helm
       - run:
           name: Deploy application with Helm
           command: |
@@ -103,40 +61,6 @@ jobs:
               --values chart/values.yaml \
               --set image.repository=$DOCKER_IMAGE \
               --set image.tag=$CIRCLE_TAG
-
-  # fun with branches!
-  # deploy_staging:
-  #   # Now that we're onto the deploy step, we need to use a docker image that has the helm binary installed.
-  #   docker:
-  #     - image: scotwells/helm-docker
-  #   steps:
-  #     - checkout
-  #     - run:
-  #         name: Setup K8s Cluster Config
-  #         command: |
-  #           echo $KUBERNETES_CA_CERT | base64 -d > ca.crt
-  #           kubectl config set-cluster default --server=$KUBERNETES_SERVER_URL --embed-certs=true --certificate-authority=ca.crt
-  #     - run:
-  #         name: Setup K8s Credentials Config
-  #         command: kubectl config set-credentials default --token=$KUBERNETES_AUTH_TOKEN
-  #     - run:
-  #         name: Setup K8s Context Config
-  #         command: kubectl config set-context default --cluster=default --user=default
-  #     - run:
-  #         name: Set K8s Context
-  #         command: kubectl config use-context default
-
-  #     # deploy the application using Helm to our staging environment
-  #     - run:
-  #         name: Deploy application with Helm
-  #         command: |
-  #           helm upgrade $KUBERNETES_DEPLOY_NAME-staging ./chart \
-  #             --namespace=$KUBERNETES_NAMESPACE \
-  #             --wait \
-  #             --install \
-  #             --values chart/values.yaml \
-  #             --set image.repository=$DOCKER_IMAGE \
-  #             --set image.tag=$CIRCLE_BRANCH
 
 workflows:
   version: 2
@@ -157,35 +81,3 @@ workflows:
             branches:
               ignore: /.*/
 
-
-# bigger build stuff, we'll get here...
-#              
-# workflows:
-#   version: 2
-#   build_and_deploy_production:
-#     jobs:
-#       - build_production:
-#           filters:
-#             tags:
-#               only: /^v.*/
-#             branches:
-#               ignore: /.*/
-#       - deploy_production:
-#           requires:
-#             - build_production
-#           filters:
-#             tags:
-#               only: /^v.*/
-#             branches:
-#               ignore: /.*/
-#   build_and_deploy_staging:
-#     jobs:
-#       - build_branch:
-#           filters:
-#             branches:
-#                 only:
-#                   - /.*/
-#       - deploy_staging:
-#           filters:
-#             branches:
-#                 only: master
