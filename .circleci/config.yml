@@ -13,7 +13,7 @@ jobs:
          command: docker login --username ${DOCKER_USER} --password=${DOCKER_PASS}
 
       # install git
-      - run: apk update && apk add git
+      - run: apk update && apk add git && apk add docker
 
       # checkout the repo
       - checkout
