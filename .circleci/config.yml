@@ -2,16 +2,43 @@ version: 2
 jobs:
   build:
     docker:
-      - image: docker:stable-git
+      - image: cibuilds/hugo:latest
+    working_directory: /app
+    environment:
+      HUGO_BUILD_DIR: /app/public
     steps:
-      - checkout
       - setup_remote_docker
       - run:
          name: Login to the Docker Registry
          command: docker login --username ${DOCKER_USER} --password=${DOCKER_PASS}
+
+      # install git
+      - run: apk update && apk add git
+
+      # checkout the repo
+      - checkout
+
+      # install submodules
+      - run: git submodule sync && git submodule update --init
+
+      # build with Hugo
+      - run: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
+
+      # test the generated html
+      - run:
+          name: test our generated HTML files
+          command: |
+            htmlproofer $HUGO_BUILD_DIR --allow-hash-href --check-html \
+            --empty-alt-ignore --disable-external
+      
+      # build the docker image
+      # to do: figure out how to get $CIRCLE_TAG to work
       - run:
           name: Build the Docker Image
           command: docker build -t ${DOCKER_IMAGE}:latest .
+      
+      # push the image to the private registry
+      # to do: figure out how to get $CIRCLE_TAG to work
       - deploy:
           name: Push the Docker Image
           command: docker push ${DOCKER_IMAGE}:latest
