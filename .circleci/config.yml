@@ -16,7 +16,9 @@ jobs:
       - checkout
 
       # install submodules
-      - run: git submodule sync && git submodule update --init
+      - run:
+          name: Pull in the git submodules
+          command: git submodule sync && git submodule update --init
 
       # build with Hugo
     # - run: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
