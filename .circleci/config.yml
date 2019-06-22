@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: cibuilds/hugo:latest
+      - image: docker:stable-git
     working_directory: /app
     environment:
       HUGO_BUILD_DIR: /app/public
@@ -11,12 +11,6 @@ jobs:
       - run:
          name: Login to the Docker Registry
          command: docker login --username ${DOCKER_USER} --password=${DOCKER_PASS}
-
-      # install git
-      - run: apk update && apk add git && apk add docker
-
-      # start docker
-      - run: service docker start
 
       # checkout the repo
       - checkout
