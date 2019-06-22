@@ -14,6 +14,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 service:
+  name: mrs-hugo-service
   type: ClusterIP
   port: 80
 
@@ -22,8 +23,9 @@ ingress:
   annotations:
     kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
-  hosts:
-    - mikeroysoft.com
+ # it no likey hosts for some reason... maybe cuz only 1?
+ # hosts:
+ #   - mikeroysoft
 
   tls: []
   #  - secretName: chart-example-tls
