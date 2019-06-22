@@ -1,8 +1,9 @@
 version: 2
 jobs:
   build:
+    working_directory: /app
     docker:
-      - image: circleci/golang:1.9
+      - image: docker:stable-git
     steps:
       - checkout
       - setup_remote_docker
