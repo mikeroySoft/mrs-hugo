@@ -15,8 +15,3 @@ jobs:
       - deploy:
           name: Push the Docker Image
           command: docker push $DOCKER_IMAGE:$CIRCLE_TAG
-workflows:
-  version: 2
-  build_job:
-    jobs:
-      - build
