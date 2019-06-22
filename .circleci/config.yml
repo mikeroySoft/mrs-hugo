@@ -18,13 +18,13 @@ jobs:
           # build the docker image    
       - run:
           name: Build the Docker Image
-          command: docker build -t $DOCKER_IMAGE:$CIRCLE_TAG .
+          command: docker build -t $DOCKER_IMAGE:$CIRCLE_BRANCH .
       
       # push the image to the private registry
-      # to do: figure out how to get $CIRCLE_TAG to work
+      # to do: figure out how to get $CIRCLE_BRANCH to work
       - run:
           name: Push the Docker Image
-          command: docker push $DOCKER_IMAGE:$CIRCLE_TAG
+          command: docker push $DOCKER_IMAGE:$CIRCLE_BRANCH
 
   deploy:   
     docker:
@@ -59,7 +59,7 @@ jobs:
               --install \
               --values chart/values.yaml \
               --set image.repository=$DOCKER_IMAGE \
-              --set image.tag=$CIRCLE_TAG
+              --set image.tag=$CIRCLE_BRANCH
 
 workflows:
   version: 2
