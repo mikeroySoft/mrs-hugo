@@ -8,13 +8,13 @@ image:
   repository: mikeroysoft/mrs-hugo
   tag: latest
   pullPolicy: Always
-
-imagePullSecrets: []
+  imagePullSecrets:
+    - name: mrs-regcred
 nameOverride: ""
 fullnameOverride: ""
 
 service:
-  name: mrs-hugo-service
+  name: mrs-hugo
   type: ClusterIP
   port: 80
 
