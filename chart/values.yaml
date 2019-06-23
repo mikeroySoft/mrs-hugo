@@ -28,7 +28,6 @@ ingress:
     kubernetes.io/tls-acme: "true"
  # it no likey hosts for some reason... maybe cuz only 1?
 
-
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
