@@ -95,7 +95,7 @@ jobs:
       - run:
           name: Deploy application with Helm
           command: |
-            helm upgrade $KUBERNETES_DEPLOY_NAME-staging ./chart \
+            helm install $KUBERNETES_DEPLOY_NAME-staging ./chart \
               --namespace=$KUBERNETES_NAMESPACE \
               --wait \
               --install \
