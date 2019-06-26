@@ -95,10 +95,10 @@ jobs:
       - run:
           name: Deploy application with Helm
           command: |
-            helm install $KUBERNETES_DEPLOY_NAME-staging ./chart \
+            helm upgrade $KUBERNETES_DEPLOY_NAME-staging ./chart \
               --namespace=$KUBERNETES_NAMESPACE \
               --wait \
-              #--install \
+              --install \
               --values chart/values.yaml \
               --set image.repository=$DOCKER_IMAGE \
               --set image.tag=$CIRCLE_BRANCH
