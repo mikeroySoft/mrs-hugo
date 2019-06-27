@@ -2,7 +2,7 @@ version: 2
 jobs:
   # Create a job to build our Hugo site using Docker and push the resulting docker image up to
   # our configured Docker registry (Docker Hub).
-  build_production:
+  build:
     docker:
       # Since Circle CI needs to be able to clone our repository from GitHub, BitBucket, etc,
       # we need to use a docker image that has the git binary installed
@@ -38,7 +38,7 @@ jobs:
           name: Push the Docker Image
           command: docker push $DOCKER_IMAGE:$CIRCLE_BRANCH
 
-  deploy_production:
+  deploy:
     # Now that we're onto the deploy step, we need to use a docker image that has the helm binary installed.
     docker:
       - image: scotwells/helm-docker
@@ -72,17 +72,17 @@ jobs:
               --set image.tag=$CIRCLE_TAG
 workflows:
   version: 2
-  build_and_deploy_production:
+  build_and_deploy:
     jobs:
-      - build_production:
+      - build:
           filters:
             tags:
               only: /^v.*/
             branches:
               ignore: /.*/
-      - deploy_production:
+      - deploy:
           requires:
-            - build_production
+            - build
           filters:
             tags:
               only: /^v.*/
