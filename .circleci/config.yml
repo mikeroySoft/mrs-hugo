@@ -58,5 +58,8 @@ workflows:
   version: 2
   build_and_build_branch:
     jobs:
-      - build
+      - build:
+          filters:
+            tags:
+              only: /^v.*/
       - build_branch
