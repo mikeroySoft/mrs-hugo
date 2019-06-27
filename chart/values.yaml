@@ -1,12 +1,13 @@
 # Default values for chart.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
+# Fun with comments to trigger commits and workflows
 
 replicaCount: 1
 
 image:
   repository: mikeroysoft/mrs-hugo
-  tag: latest
+  tag: stable
   pullPolicy: Always
   imagePullSecrets:
     - name: mrs-regcred

@@ -2,23 +2,23 @@ version: 2
 jobs:
   # Create a job to build our Hugo site using Docker and push the resulting docker image up to
   # our configured Docker registry (Docker Hub).
-  build_production:
-    docker:
-      # Since Circle CI needs to be able to clone our repository from GitHub, BitBucket, etc,
-      # we need to use a docker image that has the git binary installed
-      - image: docker:stable-git
-    steps:
-      - checkout
-      - setup_remote_docker
-      - run:
-          name: Login to the Docker Registry
-          command: echo $DOCKER_PASS | docker login --username $DOCKER_USER --password-stdin
-      - run:
-          name: Build the Docker Image
-          command: docker build -t $DOCKER_IMAGE:$CIRCLE_TAG .
-      - run:
-          name: Push the Docker Image
-          command: docker push $DOCKER_IMAGE:$CIRCLE_TAG
+  # build:
+  #   docker:
+  #     # Since Circle CI needs to be able to clone our repository from GitHub, BitBucket, etc,
+  #     # we need to use a docker image that has the git binary installed
+  #     - image: docker:stable-git
+  #   steps:
+  #     - checkout
+  #     - setup_remote_docker
+  #     - run:
+  #         name: Login to the Docker Registry
+  #         command: echo $DOCKER_PASS | docker login --username $DOCKER_USER --password-stdin
+  #     - run:
+  #         name: Build the Docker Image
+  #         command: docker build -t $DOCKER_IMAGE:$CIRCLE_TAG .
+  #     - run:
+  #         name: Push the Docker Image
+  #         command: docker push $DOCKER_IMAGE:$CIRCLE_TAG
 
   build_branch:
     docker:
@@ -37,66 +37,3 @@ jobs:
       - run:
           name: Push the Docker Image
           command: docker push $DOCKER_IMAGE:$CIRCLE_BRANCH
-
-#   deploy_production:
-#     # Now that we're onto the deploy step, we need to use a docker image that has the helm binary installed.
-#     docker:
-#       - image: scotwells/helm-docker
-#     steps:
-#       - checkout
-#       - run:
-#           name: Setup K8s Cluster Config
-#           command: |
-#             echo $KUBERNETES_CA_CERT | base64 -d > ca.crt
-#             kubectl config set-cluster default --server=$KUBERNETES_SERVER_URL --embed-certs=true --certificate-authority=ca.crt
-#       - run:
-#           name: Setup K8s Credentials Config
-#           command: kubectl config set-credentials default --token=$KUBERNETES_AUTH_TOKEN
-#       - run:
-#           name: Setup K8s Context Config
-#           command: kubectl config set-context default --cluster=default --user=default
-#       - run:
-#           name: Set K8s Context
-#           command: kubectl config use-context default
-
-#       # deploy the application using Helm
-#       - run:
-#           name: Deploy application with Helm
-#           command: |
-#             helm upgrade $KUBERNETES_DEPLOY_NAME-production ./chart \
-#               --namespace=$KUBERNETES_NAMESPACE \
-#               --wait \
-#               --install \
-#               --values chart/values.yaml \
-#               --set image.repository=$DOCKER_IMAGE \
-#               --set image.tag=$CIRCLE_TAG
-# workflows:
-#   version: 2
-#   build_and_deploy_production:
-#     jobs:
-#       - build_production:
-#           filters:
-#             tags:
-#               only: /^v.*/
-#             branches:
-#               ignore: /.*/
-#       - deploy_production:
-#           requires:
-#             - build_production
-#           filters:
-#             tags:
-#               only: /^v.*/
-#             branches:
-#               ignore: /.*/
-  # build_and_deploy_staging:
-  #   jobs:
-  #     - build_branch:
-  #         filters:
-  #           branches:
-  #               only:
-  #                 - /.*/
-  #     - deploy_staging:
-  #         filters:
-  #           branches:
-  #               only: master
-  # This comment is only to trigger a commit push... fun#
