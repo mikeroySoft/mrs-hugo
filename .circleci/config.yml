@@ -70,38 +70,40 @@ jobs:
               --values chart/values.yaml \
               --set image.repository=$DOCKER_IMAGE \
               --set image.tag=$CIRCLE_TAG
-  deploy_staging:
-    # Now that we're onto the deploy step, we need to use a docker image that has the helm binary installed.
-    docker:
-      - image: scotwells/helm-docker
-    steps:
-      - checkout
-      - run:
-          name: Setup K8s Cluster Config
-          command: |
-            echo $KUBERNETES_CA_CERT | base64 -d > ca.crt
-            kubectl config set-cluster default --server=$KUBERNETES_SERVER_URL --embed-certs=true --certificate-authority=ca.crt
-      - run:
-          name: Setup K8s Credentials Config
-          command: kubectl config set-credentials default --token=$KUBERNETES_AUTH_TOKEN
-      - run:
-          name: Setup K8s Context Config
-          command: kubectl config set-context default --cluster=default --user=default
-      - run:
-          name: Set K8s Context
-          command: kubectl config use-context default
+  # deploy_staging:
+  #   # Now that we're onto the deploy step, we need to use a docker image that has the helm binary installed.
+  #   docker:
+  #     - image: scotwells/helm-docker
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: Setup K8s Cluster Config
+  #         command: |
+  #           echo $KUBERNETES_CA_CERT | base64 -d > ca.crt
+  #           kubectl config set-cluster default --server=$KUBERNETES_SERVER_URL --embed-certs=true --certificate-authority=ca.crt
+  #     - run:
+  #         name: Setup K8s Credentials Config
+  #         command: kubectl config set-credentials default --token=$KUBERNETES_AUTH_TOKEN
+  #     - run:
+  #         name: Setup K8s Context Config
+  #         command: kubectl config set-context default --cluster=default --user=default
+  #     - run:
+  #         name: Set K8s Context 
+  #         command: kubectl config use-context default
 
-      # deploy the application using Helm to our staging environment
-      - run:
-          name: Deploy application with Helm
-          command: |
-            helm upgrade $KUBERNETES_DEPLOY_NAME-staging ./chart \
-              --namespace=$KUBERNETES_NAMESPACE \
-              --wait \
-              --install \
-              --values chart/values.yaml \
-              --set image.repository=$DOCKER_IMAGE \
-              --set image.tag=$CIRCLE_BRANCH
+  #     # deploy the application using Helm to our staging environment
+  #     - run:
+  #         name: Deploy application with Helm
+  #         command: |
+  #           helm upgrade $KUBERNETES_DEPLOY_NAME-staging ./chart \
+  #             --namespace=$KUBERNETES_NAMESPACE \
+  #             --wait \
+  #             --install \
+  #             --values chart/values.yaml \
+  #             --set image.repository=$DOCKER_IMAGE \
+  #             --set image.tag=$CIRCLE_BRANCH
+
+
 workflows:
   version: 2
   build_and_deploy_production:
@@ -120,14 +122,14 @@ workflows:
               only: /^v.*/
             branches:
               ignore: /.*/
-  build_and_deploy_staging:
-    jobs:
-      - build_branch:
-          filters:
-            branches:
-                only:
-                  - /.*/
-      - deploy_staging:
-          filters:
-            branches:
-                only: master
+  # build_and_deploy_staging:
+  #   jobs:
+  #     - build_branch:
+  #         filters:
+  #           branches:
+  #               only:
+  #                 - /.*/
+  #     - deploy_staging:
+  #         filters:
+  #           branches:
+  #               only: master
