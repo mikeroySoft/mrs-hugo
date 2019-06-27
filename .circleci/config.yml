@@ -32,6 +32,9 @@ jobs:
       - run:
           name: Push the Docker Image
           command: docker push $DOCKER_IMAGE:$CIRCLE_TAG
+      - run:
+          name: What is CIRCLE_TAG ?
+          command: echo $CIRCLE_TAG    
 
   build_branch:
     docker:
