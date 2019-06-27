@@ -2,23 +2,23 @@ version: 2
 jobs:
   # Create a job to build our Hugo site using Docker and push the resulting docker image up to
   # our configured Docker registry (Docker Hub).
-  # build:
-  #   docker:
-  #     # Since Circle CI needs to be able to clone our repository from GitHub, BitBucket, etc,
-  #     # we need to use a docker image that has the git binary installed
-  #     - image: docker:stable-git
-  #   steps:
-  #     - checkout
-  #     - setup_remote_docker
-  #     - run:
-  #         name: Login to the Docker Registry
-  #         command: echo $DOCKER_PASS | docker login --username $DOCKER_USER --password-stdin
-  #     - run:
-  #         name: Build the Docker Image
-  #         command: docker build -t $DOCKER_IMAGE:$CIRCLE_TAG .
-  #     - run:
-  #         name: Push the Docker Image
-  #         command: docker push $DOCKER_IMAGE:$CIRCLE_TAG
+  build:
+    docker:
+      # Since Circle CI needs to be able to clone our repository from GitHub, BitBucket, etc,
+      # we need to use a docker image that has the git binary installed
+      - image: docker:stable-git
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Login to the Docker Registry
+          command: echo $DOCKER_PASS | docker login --username $DOCKER_USER --password-stdin
+      - run:
+          name: Build the Docker Image
+          command: docker build -t $DOCKER_IMAGE:$CIRCLE_TAG .
+      - run:
+          name: Push the Docker Image
+          command: docker push $DOCKER_IMAGE:$CIRCLE_TAG
 
   build_branch:
     docker:
@@ -37,3 +37,10 @@ jobs:
       - run:
           name: Push the Docker Image
           command: docker push $DOCKER_IMAGE:$CIRCLE_BRANCH
+
+workflows:
+  version: 2
+  build_and_build_branch:
+    jobs:
+      - build
+      - build_branch
