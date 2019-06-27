@@ -24,6 +24,9 @@ jobs:
           name: Login to the Docker Registry
           command: echo $DOCKER_PASS | docker login --username $DOCKER_USER --password-stdin
       - run:
+          name: What is CIRCLE_TAG ?
+          command: echo $CIRCLE_TAG    
+      - run:
           name: Build the Docker Image
           command: docker build -t $DOCKER_IMAGE:$CIRCLE_TAG .
       - run:
