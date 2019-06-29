@@ -13,6 +13,7 @@
 # Once you, after the commit, push the tag, a build is triggered in Circle
 
 # This is _MASTER_ branch
+# My man...
 
 version: 2
 jobs:
