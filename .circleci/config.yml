@@ -1,3 +1,7 @@
+#
+# circle config... pull the header info from Master branch
+# This is STABLE branch
+#
 version: 2
 jobs:
   # Create a job to build our Hugo site using Docker and push the resulting docker image up to
