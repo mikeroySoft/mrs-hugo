@@ -1,3 +1,17 @@
+# config.yml for CircleCI
+# This puppy will build our container using a standard docker:stable-git container
+# It will tag the build with the git tag applied ($CIRCLE_TAG)
+# Once built it will push the image to docker hub
+#
+# To do: Deploy this image with Helm
+# Branches:
+# - Master
+# - Stable
+# - 'versioned' (v0.1.3)
+# Open Question: how do I get the same docker image built for branch and image at the same time? Shouldn't this 'just do it'?
+
+
+
 version: 2
 jobs:
   # Create a job to build our Hugo site using Docker and push the resulting docker image up to
