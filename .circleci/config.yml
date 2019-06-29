@@ -1,7 +1,17 @@
-#
-# circle config... pull the header info from Master branch
-# This is STABLE branch
-#
+# config.yml for CircleCI
+# This puppy will build our container using a standard docker:stable-git container
+# It will tag the build with the git tag applied ($CIRCLE_TAG)
+# Once built it will push the image to docker hub
+# 
+# To do: Deploy this image with Helm
+# Branches:
+# - Master
+# - Stable
+# - 'versioned' (v0.1.3)
+# Open Question: how do I get the same docker image built for branch and image at the same time? Shouldn't this 'just do it'?
+
+# THIS IS _STABLE_ BRANCH
+
 version: 2
 jobs:
   # Create a job to build our Hugo site using Docker and push the resulting docker image up to
@@ -13,16 +23,32 @@ jobs:
       - image: docker:stable-git
     steps:
       - checkout
+      
+      # Pull the submodules
+      # right now it's just the theme, but let's add the content here later on
+      - run:
+          name: "Pull Submodules"
+          command: |
+            git submodule init
+            git submodule update --remote
+
+ # setting up the remote Docker 
       - setup_remote_docker
       - run:
           name: Login to the Docker Registry
           command: echo $DOCKER_PASS | docker login --username $DOCKER_USER --password-stdin
+      - run:
+          name: What is CIRCLE_TAG ?
+          command: echo $CIRCLE_TAG    
       - run:
           name: Build the Docker Image
           command: docker build -t $DOCKER_IMAGE:$CIRCLE_TAG .
       - run:
           name: Push the Docker Image
           command: docker push $DOCKER_IMAGE:$CIRCLE_TAG
+      - run:
+          name: What is CIRCLE_TAG ?
+          command: echo $CIRCLE_TAG    
 
   build_branch:
     docker:
@@ -31,15 +57,6 @@ jobs:
       - image: docker:stable-git
     steps:
       - checkout
-      # Pull the submodules
-      # right now it's just the theme, but let's add the content here later on
-      - run:
-          name: "Pull Submodules"
-          command: |
-            git submodule init
-            git submodule update --remote
-            
-      # Now set up the remote docker registry (which in our case is docker hub)      
       - setup_remote_docker
       - run:
           name: Login to the Docker Registry
@@ -55,5 +72,8 @@ workflows:
   version: 2
   build_and_build_branch:
     jobs:
-      - build
+      - build:
+          filters:
+            tags:
+              only: /^v.*/
       - build_branch
