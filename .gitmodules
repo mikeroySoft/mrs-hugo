@@ -3,4 +3,4 @@
 	url = git@github.com:orianna-zzo/AllinOne.git
 [submodule "themes/hugo-future-imperfect"]
 	path = themes/hugo-future-imperfect
-	url = git@github.com:jpescador/hugo-future-imperfect.git	
+	url = git@github.com:jpescador/hugo-future-imperfect.git
