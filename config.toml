@@ -1,7 +1,7 @@
 baseURL                    = "/"
 languageCode               = "en-us"
 title                      = "mikeroySoft.com"
-theme                      = "AllinOne"
+theme                      = "hugo-future-imperfect"
 
 
 builddrafts                = true
