@@ -124,7 +124,7 @@ jobs:
       - run:
           name: Deploy application with Helm
           command: |
-            helm upgrade $KUBERNETES_DEPLOY_NAME-production ./mrs-www \
+            helm upgrade $KUBERNETES_DEPLOY_NAME ./mrs-www \
               --namespace=$KUBERNETES_NAMESPACE \
               --wait \
               --install \
