@@ -115,25 +115,23 @@ jobs:
       - run:
           name: Set K8s Context
           command: kubectl config use-context default
-      - run:
-          name: Is there an echo in here?
-          command: echo CIRCLE_TAG = $CIRCLE_TAG && \
-            echo CIRCLE_BRANCH = $CIRCLE_BRANCH 
-
-      # We should just get here and bail
-      # until we can manually deploy with helm
-      #
-      # # deploy the application using Helm
       # - run:
-      #     name: Deploy application with Helm
-      #     command: |
-      #       helm upgrade $KUBERNETES_DEPLOY_NAME-production ./chart \
-      #         --namespace=$KUBERNETES_NAMESPACE \
-      #         --wait \
-      #         --install \
-      #         --values chart/values.yaml \
-      #         --set image.repository=$DOCKER_IMAGE \
-      #         --set image.tag=$CIRCLE_TAG
+      #     name: Is there an echo in here?
+      #     command: echo CIRCLE_TAG = $CIRCLE_TAG && \
+      #       echo CIRCLE_BRANCH = $CIRCLE_BRANCH 
+
+
+      # deploy the application using Helm
+      - run:
+          name: Deploy application with Helm
+          command: |
+            helm upgrade $KUBERNETES_DEPLOY_NAME-production ./chart \
+              --namespace=$KUBERNETES_NAMESPACE \
+              --wait \
+              --install \
+              --values mrs-www/values.yaml \
+              --set image.repository=$DOCKER_IMAGE \
+              --set image.tag=$CIRCLE_TAG
 
 
 

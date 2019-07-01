@@ -3,7 +3,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ $fullName }}
+  name: {{ $fullName }}-ingress
   labels:
 {{ include "chart.labels" . | indent 4 }}
   {{- with .Values.ingress.annotations }}
@@ -23,14 +23,12 @@ spec:
 {{- end }}
   rules:
   {{- range .Values.ingress.hosts }}
-    - host: {{ .host | quote }}
+    - host: mikeroysoft.com
       http:
         paths:
-        {{- range .paths }}
-          - path: {{ . }}
+          - path: /
             backend:
               serviceName: {{ $fullName }}
               servicePort: http
-        {{- end }}
   {{- end }}
 {{- end }}
