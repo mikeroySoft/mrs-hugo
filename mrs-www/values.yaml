@@ -1,7 +1,6 @@
 # Default values for chart.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-# Fun with comments to trigger commits and workflows
 
 replicaCount: 1
 
@@ -9,30 +8,30 @@ image:
   repository: mikeroysoft/mrs-hugo
   tag: stable
   pullPolicy: Always
-  imagePullSecrets:
-    - name: mrs-regcred
-nameOverride: ""
-fullnameOverride: ""
+
+imagePullSecrets: 
+  - name: mrs-regcred
+nameOverride: "mrs-www"
+fullnameOverride: "mrs-www"
 
 service:
-  name: mrs-hugo
   type: ClusterIP
   port: 80
 
 ingress:
   enabled: true
   path: /
-  hosts:
+  hosts: 
     - mikeroysoft.com
+  
   annotations: 
     kubernetes.io/ingress.class: nginx
-    kubernetes.io/tls-acme: "true"
- # it no likey hosts for some reason... maybe cuz only 1?
-
- # tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+#    kubernetes.io/tls-acme: "true"
+ 
+  tls: []
+    # - secretName: mrs-hugo-tls
+    #   hosts:
+    #     - mikeroysoft.com
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
