@@ -1,7 +1,7 @@
 ---
 title: "About_me"
 date: 2019-06-01T20:36:20-07:00
-draft: true
+draft: false
 ---
 
 A wise man once told me that success is part opportunity, part timing, part preparation, and finally, part luck. I add to that list risk and willingness to embrace change.
