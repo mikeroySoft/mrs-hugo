@@ -142,7 +142,7 @@ jobs:
 #     jobs:
 #       - build_branch
 
-# build and deploy if stable
+# build_branch and then, if branch=stable, deploy 
 workflows:
   version: 2
   build_branch_and_deploy_stable:
