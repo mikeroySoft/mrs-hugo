@@ -131,8 +131,16 @@ jobs:
               --values mrs-www/values.yaml \
               --set image.repository=$DOCKER_IMAGE \
               --set image.tag=$CIRCLE_TAG
-              
-# build and deploy if stable
+
+# just build          
+# workflows:
+#   version: 2
+#   build_branch:
+#     jobs:
+#       - build_branch
+
+# build_branch and then, if branch=stable, deploy 
+
 workflows:
   version: 2
   build_branch_and_deploy_stable:

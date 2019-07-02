@@ -1,5 +1,6 @@
 apiVersion: v1
-appVersion: "1.0"
-description: First Helm chart for mikeroysoft.com deployment on DO
+appVersion: "0.2.8"
+description: Helm chart for mikeroysoft.com deployment on DO with SSL
 name: mrs-www
-version: 0.2.3
+version: 0.2.8
+
