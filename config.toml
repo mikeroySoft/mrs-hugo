@@ -6,7 +6,7 @@ theme                      = "AllinOne"
 
 builddrafts                = true
 canonifyurls               = true
-contentdir                 = "content"
+contentdir                 = "content/mrs-content"
 layoutdir                  = "layouts"
 publishdir                 = "public"
 enableEmoji                = true
