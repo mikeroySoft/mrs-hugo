@@ -6,4 +6,4 @@
 	url = git@github.com:jpescador/hugo-future-imperfect.git
 [submodule "content"]
 	path = content
-	url = git@github.com:mikeroySoft/content.git
+	url = git@github.com:mikeroySoft/mrs-content.git
