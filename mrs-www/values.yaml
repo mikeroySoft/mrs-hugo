@@ -4,11 +4,11 @@
 #
 # MASTER BRANCH
 
-replicaCount: 1
+replicaCount: 3
 
 image:
   repository: mikeroysoft/mrs-hugo
-  tag: stable
+  tag: master
   pullPolicy: Always
 
 imagePullSecrets: 
