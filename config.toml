@@ -4,7 +4,7 @@ title                      = "mikeroySoft.com"
 theme                      = "AllinOne"
 
 
-builddrafts                = true
+builddrafts                = false
 canonifyurls               = true
 contentdir                 = "content/mrs-content/content"
 layoutdir                  = "layouts"
@@ -83,5 +83,5 @@ pygmentsuseclasses         = true
   include_rss              = true                          # include RSS <link> tag in <head> and show RSS icon
   
   # analytics
-#  googleAnalytics          = "your-google-analytic-id"
+  googleAnalytics          = "UA-37100411-1"
     
