@@ -4,7 +4,7 @@ title                      = "mikeroySoft.com"
 theme                      = "AllinOne"
 
 
-builddrafts                = true
+builddrafts                = false
 canonifyurls               = true
 contentdir                 = "content/mrs-content/content"
 layoutdir                  = "layouts"
