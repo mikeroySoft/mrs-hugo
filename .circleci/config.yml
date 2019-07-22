@@ -9,8 +9,8 @@
 # - Stable
 # - 'versioned' (v0.1.3)
 
-# This is _STABLE_ branch
-# $CIRCLE_BRANCH =  stable
+# This is _LATEST_ branch
+# $CIRCLE_BRANCH =  latest
 
 version: 2
 jobs:
