@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mrs-content on mikeroySoft</title>
+    <link>/mrs-content/</link>
+    <description>Recent content in Mrs-content on mikeroySoft</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 08 Jul 2019 21:17:20 -0700</lastBuildDate>
+    
+	<atom:link href="/mrs-content/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Pipeline: part 1</title>
+      <link>/mrs-content/content/blog/pipeline-1/</link>
+      <pubDate>Mon, 08 Jul 2019 21:17:20 -0700</pubDate>
+      
+      <guid>/mrs-content/content/blog/pipeline-1/</guid>
+      <description>the mikeroysoft.com pipeline As I mentioned in this post, I had the desire to move off of Wordpress for some time. Maintaining it just was getting boring.
+My wp installation, which was on an Ubuntu VM &amp;lsquo;in the cloud&amp;rsquo; with a seperate VM for the db, kept running into issues. The docker image cache would fill up, and it kept getting hacked. Seemed like a great exercise to move my blog to something more &amp;lsquo;cloud native&amp;rsquo; by way of using containers, kubernetes, and a continuously deploying pipeline.</description>
+    </item>
+    
+    <item>
+      <title>Go for Hugo</title>
+      <link>/mrs-content/content/blog/go-for-hugo/</link>
+      <pubDate>Mon, 01 Jul 2019 20:36:20 -0700</pubDate>
+      
+      <guid>/mrs-content/content/blog/go-for-hugo/</guid>
+      <description>We are Go for Hugo Exciting times&amp;hellip; I just spent the past while converting my blog from Wordpress over to Hugo. As part of the process, I set up a Continuous Integration and Deployment pipeline with the following characteristics:
+ Hosted on Kubernetes (Digital Ocean) Build system handled by CircleCI SSL provided by LetsEncrypt using cert-manager All content, code and deployment files tracked in github (private repos) Main repo has several submodules for versioning sub-components (themes, content, deployment, circleci config, manual yamls)  I wasn&amp;rsquo;t planning to migrate my old content, it&amp;rsquo;s all fairly dated by now, so it made sense to start over with something new using as much open source cloud-native tooling as possible.</description>
+    </item>
+    
+    <item>
+      <title>About_me</title>
+      <link>/mrs-content/content/about/</link>
+      <pubDate>Sat, 01 Jun 2019 20:36:20 -0700</pubDate>
+      
+      <guid>/mrs-content/content/about/</guid>
+      <description>tl;dr: I&amp;rsquo;ve spent the past 10 years at VMware, doing all kinds of techy-producty things. I ran a small data center in Toronto before that. Before that I ran my own small web development shop and worked for a local startup that you&amp;rsquo;ve never heard of. I am also a pirate.
+Currently, I run product management and marketing for VMware Fusion and Workstation, and have been doing so since 2015.</description>
+    </item>
+    
+    <item>
+      <title>First Post</title>
+      <link>/mrs-content/content/blog/first-post/</link>
+      <pubDate>Sat, 01 Jun 2019 18:17:59 -0700</pubDate>
+      
+      <guid>/mrs-content/content/blog/first-post/</guid>
+      <description>Frist Toast Just switching blogging platforms again&amp;hellip; because why not&amp;hellip; Go seems all the rage so we&amp;rsquo;re trying out Hugo. I like the different workflow&amp;hellip; I get to use git to keep just about everything under control, and it looks like it should scale well (cuz I&amp;rsquo;m blowin up, you see&amp;hellip;;).
+So here&amp;rsquo;s some initial content to see how this thing goes&amp;hellip; if so, I&amp;rsquo;ll go through the exercize of copying over all my old content, and take things from there.</description>
+    </item>
+    
+  </channel>
+</rss>

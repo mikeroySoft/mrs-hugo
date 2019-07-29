@@ -1,57 +1,144 @@
-// smooth-scroll
-$.smoothScroll({
-    //滑动到的位置的偏移量
-    offset: 0,
-    //滑动的方向，可取 'top' 或 'left'
-    direction: 'top',
-    // 只有当你想重写默认行为的时候才会用到
-    scrollTarget: null,
-    // 滑动开始前的回调函数。`this` 代表正在被滚动的元素
-    beforeScroll: function () { },
-    //滑动完成后的回调函数。 `this` 代表触发滑动的元素
-    afterScroll: function () { },
-    //缓动效果
-    easing: 'swing',
-    //滑动的速度
-    speed: 700,
-    // "自动" 加速的系数
-    autoCoefficent: 2
-});
+/*
+	Future Imperfect by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
 
+(function($) {
 
-// Bind the hashchange event listener
-$(window).bind('hashchange', function (event) {
-    $.smoothScroll({
-        // Replace '#/' with '#' to go to the correct target
-        offset: $("body").attr("data-offset")? -$("body").attr("data-offset"):0 ,
-        // offset: -30,
-        scrollTarget: decodeURI(location.hash.replace(/^\#\/?/, '#'))
-        
-      });
-});
+	skel.breakpoints({
+		xlarge:	'(max-width: 1680px)',
+		large:	'(max-width: 1280px)',
+		medium:	'(max-width: 980px)',
+		small:	'(max-width: 736px)',
+		xsmall:	'(max-width: 480px)'
+	});
 
-// $(".smooth-scroll").on('click', "a", function() {
-$('a[href*="#"]')
-    .bind('click', function (event) {    
-    // Remove '#' from the hash.
-    var hash = this.hash.replace(/^#/, '')
-    if (this.pathname === location.pathname && hash) {
-        event.preventDefault();
-        // Change '#' (removed above) to '#/' so it doesn't jump without the smooth scrolling
-        location.hash = '#/' + hash;
-    }
-});
+	$(function() {
 
-// Trigger hashchange event on page load if there is a hash in the URL.
-if (location.hash) {
-    $(window).trigger('hashchange');
-}
+		var	$window = $(window),
+			$body = $('body'),
+			$menu = $('#menu'),
+			$shareMenu = $('#share-menu'),
+			$sidebar = $('#sidebar'),
+			$main = $('#main');
 
-// // $('[data-spy="scroll"]').each(function () {
-// //     var $spy = $(this).scrollspy('refresh')
-// //   })
+		// TODO: Fix this, or implement lazy load.
+		// Disable animations/transitions until the page has loaded.
+		//	$body.addClass('is-loading');
 
-// $('[data-spy="scroll"]').on('activate.bs.scrollspy', function () {
-//     // do something…
-//     var offset = $('[data-spy="scroll"]').attr("data-offset")
-//   })
+		//	$window.on('load', function() {
+		//		window.setTimeout(function() {
+		//			$body.removeClass('is-loading');
+		//		}, 100);
+		//	});
+
+		// Fix: Placeholder polyfill.
+			$('form').placeholder();
+
+		// Prioritize "important" elements on medium.
+			skel.on('+medium -medium', function() {
+				$.prioritize(
+					'.important\\28 medium\\29',
+					skel.breakpoint('medium').active
+				);
+			});
+
+		// IE<=9: Reverse order of main and sidebar.
+			if (skel.vars.IEVersion <= 9)
+				$main.insertAfter($sidebar);
+
+		$menu.appendTo($body);
+		$shareMenu.appendTo($body);
+
+		$menu.panel({
+			delay: 500,
+			hideOnClick: true,
+			hideOnEscape: true,
+			hideOnSwipe: true,
+			resetScroll: true,
+			resetForms: true,
+			side: 'right',
+			target: $body,
+			visibleClass: 'is-menu-visible'
+		});
+
+		$shareMenu.panel({
+			delay: 500,
+			hideOnClick: true,
+			hideOnEscape: true,
+			hideOnSwipe: true,
+			resetScroll: true,
+			resetForms: true,
+			side: 'right',
+			target: $body,
+			visibleClass: 'is-share-visible'
+		});
+
+		// Menu.
+			/*$menu
+				.appendTo($body)
+				.panel({
+					delay: 500,
+					hideOnClick: true,
+					hideOnSwipe: true,
+					resetScroll: true,
+					resetForms: true,
+					side: 'right',
+					target: $body,
+					visibleClass: 'is-menu-visible'
+				});*/
+
+		// Search (header).
+			var $search = $('#search'),
+				$search_input = $search.find('input');
+
+			$body
+				.on('click', '[href="#search"]', function(event) {
+
+					event.preventDefault();
+
+					// Not visible?
+						if (!$search.hasClass('visible')) {
+
+							// Reset form.
+								$search[0].reset();
+
+							// Show.
+								$search.addClass('visible');
+
+							// Focus input.
+								$search_input.focus();
+
+						}
+
+				});
+
+			$search_input
+				.on('keydown', function(event) {
+
+					if (event.keyCode == 27)
+						$search_input.blur();
+
+				})
+				.on('blur', function() {
+					window.setTimeout(function() {
+						$search.removeClass('visible');
+					}, 100);
+				});
+
+		// Intro.
+			var $intro = $('#intro');
+
+			// Move to main on <=large, back to sidebar on >large.
+				skel
+					.on('+medium', function() {
+						$intro.prependTo($main);
+					})
+					.on('-medium', function() {
+						$intro.prependTo($sidebar);
+					});
+
+	});
+
+})(jQuery);
