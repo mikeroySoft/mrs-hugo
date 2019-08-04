@@ -87,11 +87,11 @@ canonifyURLs = true
   # These are optional params related to the sidebar. They are recommended, but not
   # required for proper functionality. HTML is supported within the params.
 [params.intro]
-  header    = "mikeroySoft.com"
+  header    = "mikeroySoft"
 
   paragraph = "Just Michael Roy writing about Software"
 
-  about     = "I am a pirate"
+  about     = "Product Manager, Solving problems so people can solve more problems. I am also a pirate"
   # This appears at the top of the sidebar above params.intro.header.
   # A width of less than 100px is recommended from a design perspective.
   [params.intro.pic]
@@ -117,21 +117,21 @@ canonifyURLs = true
 
 [[menu.main]]
   name = "About"
-  url = "/mrs-content/about/"
+  url = "/about/"
   identifier = "fa fa-id-card-o"
   weight = 2
 
 [[menu.main]]
   name = "Blog"
-  url = "/mrs-content/blog/"
+  url = "/blog/"
   identifier = "fa fa-newspaper-o"
   weight = 3
 
-[[menu.main]]
-  name = "Itemized"
-  url = "/itemized/"
-  identifier = "fa fa-list"
-  weight = 4
+# [[menu.main]]
+#   name = "Projects"
+#   url = "/projects/"
+#   identifier = "fa fa-list"
+#   weight = 4
 
 [[menu.main]]
   name = "Categories"
@@ -151,11 +151,11 @@ canonifyURLs = true
 [social]
   # Coding Communities
   github           = "mikeroySoft"
-  gitlab           = ""
+  gitlab           = "mikeroySoft"
   stackoverflow    = "" # User Number
   bitbucket        = ""
   jsfiddle         = ""
-  codepen          = ""
+  codepen          = "mikeroySoft"
   # Visual Art Communities
   deviantart       = ""
   flickr           = ""
