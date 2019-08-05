@@ -1,80 +1,53 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>mikeroySoft.com</title>
-    <link>http://mikeroysoft.com/</link>
-    <description>Recent content on mikeroySoft.com</description>
+    <title>mikeroySoft</title>
+    <link>/</link>
+    <description>Recent content on mikeroySoft</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 01 Jun 2019 20:43:31 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jul 2019 21:17:20 -0700</lastBuildDate>
     
-	<atom:link href="http://mikeroysoft.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Thing</title>
-      <link>http://mikeroysoft.com/derpurl/thing/</link>
-      <pubDate>Sat, 01 Jun 2019 20:43:31 -0700</pubDate>
+      <title>Pipeline: part 1</title>
+      <link>/mrs-content/content/blog/pipeline-1/</link>
+      <pubDate>Mon, 08 Jul 2019 21:17:20 -0700</pubDate>
       
-      <guid>http://mikeroysoft.com/derpurl/thing/</guid>
-      <description></description>
+      <guid>/mrs-content/content/blog/pipeline-1/</guid>
+      <description>the mikeroysoft.com pipeline As I mentioned in this post, I had the desire to move off of Wordpress for some time. Maintaining it just was getting boring.
+My wp installation, which was on an Ubuntu VM &amp;lsquo;in the cloud&amp;rsquo; with a seperate VM for the db, kept running into issues. The docker image cache would fill up, and it kept getting hacked. Seemed like a great exercise to move my blog to something more &amp;lsquo;cloud native&amp;rsquo; by way of using containers, kubernetes, and a continuously deploying pipeline.</description>
     </item>
     
     <item>
-      <title>Derpurl</title>
-      <link>http://mikeroysoft.com/derpurl/derpurl/</link>
-      <pubDate>Sat, 01 Jun 2019 20:43:09 -0700</pubDate>
+      <title>Go for Hugo</title>
+      <link>/mrs-content/content/blog/go-for-hugo/</link>
+      <pubDate>Mon, 01 Jul 2019 20:36:20 -0700</pubDate>
       
-      <guid>http://mikeroysoft.com/derpurl/derpurl/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Derpurl</title>
-      <link>http://mikeroysoft.com/derp/derpurl/</link>
-      <pubDate>Sat, 01 Jun 2019 20:42:57 -0700</pubDate>
-      
-      <guid>http://mikeroysoft.com/derp/derpurl/</guid>
-      <description></description>
+      <guid>/mrs-content/content/blog/go-for-hugo/</guid>
+      <description>We are Go for Hugo Exciting times&amp;hellip; I just spent the past while converting my blog from Wordpress over to Hugo. As part of the process, I set up a Continuous Integration and Deployment pipeline with the following characteristics:
+ Hosted on Kubernetes (Digital Ocean) Build system handled by CircleCI SSL provided by LetsEncrypt using cert-manager All content, code and deployment files tracked in github (private repos) Main repo has several submodules for versioning sub-components (themes, content, deployment, circleci config, manual yamls)  I wasn&amp;rsquo;t planning to migrate my old content, it&amp;rsquo;s all fairly dated by now, so it made sense to start over with something new using as much open source cloud-native tooling as possible.</description>
     </item>
     
     <item>
       <title>About_me</title>
-      <link>http://mikeroysoft.com/about/about_me/</link>
+      <link>/mrs-content/content/about/</link>
       <pubDate>Sat, 01 Jun 2019 20:36:20 -0700</pubDate>
       
-      <guid>http://mikeroysoft.com/about/about_me/</guid>
-      <description>A wise man once told me that success is part opportunity, part timing, part preparation, and finally, part luck. I add to that list risk and willingness to embrace change.
-Coming from a unique and diverse background, I often struggled with a career path that didn’t quite fit who I was. I was very happy as the SysAdmin (Systems Administrator) at a small data center in Toronto, when a unique opportunity came across my lap. That opportunity quickly fell through: the company presented me a false view of their own stability and went belly-up two months after I relocated from Toronto, about 20 days from Christmas. So, I went work for a local Apple support center.
-But in 2009, opportunity happened. A teammate of mine got an interview at VMware for a new Fusion support team, and they needed Apple experts. A thorough interview later, they offered me a position, and we moved to create what I consider the best support team with which I’ve had the pleasure of working with.
-We not only had a strong technical group (most of whom by now have moved on to more technical roles in and outside of VMware), but we also had a synergy that I’ve not seen outside of VMware Global Support.</description>
-    </item>
-    
-    <item>
-      <title>New_blog</title>
-      <link>http://mikeroysoft.com/blog/2019-06/new_blog/</link>
-      <pubDate>Sat, 01 Jun 2019 20:35:03 -0700</pubDate>
-      
-      <guid>http://mikeroysoft.com/blog/2019-06/new_blog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Test_blog</title>
-      <link>http://mikeroysoft.com/posts/blog/test_blog/</link>
-      <pubDate>Sat, 01 Jun 2019 20:33:36 -0700</pubDate>
-      
-      <guid>http://mikeroysoft.com/posts/blog/test_blog/</guid>
-      <description>Blog draft Here is a draft blog</description>
+      <guid>/mrs-content/content/about/</guid>
+      <description>tl;dr: I&amp;rsquo;ve spent the past 10 years at VMware, doing all kinds of techy-producty things. I ran a small data center in Toronto before that. Before that I ran my own small web development shop and worked for a local startup that you&amp;rsquo;ve never heard of. I am also a pirate.
+Currently, I run product management and marketing for VMware Fusion and Workstation, and have been doing so since 2015.</description>
     </item>
     
     <item>
       <title>First Post</title>
-      <link>http://mikeroysoft.com/posts/first-post/</link>
+      <link>/mrs-content/content/blog/first-post/</link>
       <pubDate>Sat, 01 Jun 2019 18:17:59 -0700</pubDate>
       
-      <guid>http://mikeroysoft.com/posts/first-post/</guid>
-      <description>Frist Toast! Just switching blogging platforms again&amp;hellip; because why not&amp;hellip; Go seems all the rage so we&amp;rsquo;re trying out Hugo. I like the different workflow&amp;hellip; I get to use git to keep just about everything under control, and it looks like it should scale well (cuz I&amp;rsquo;m blowin up, you see&amp;hellip;;).
+      <guid>/mrs-content/content/blog/first-post/</guid>
+      <description>Frist Toast Just switching blogging platforms again&amp;hellip; because why not&amp;hellip; Go seems all the rage so we&amp;rsquo;re trying out Hugo. I like the different workflow&amp;hellip; I get to use git to keep just about everything under control, and it looks like it should scale well (cuz I&amp;rsquo;m blowin up, you see&amp;hellip;;).
 So here&amp;rsquo;s some initial content to see how this thing goes&amp;hellip; if so, I&amp;rsquo;ll go through the exercize of copying over all my old content, and take things from there.</description>
     </item>
     
