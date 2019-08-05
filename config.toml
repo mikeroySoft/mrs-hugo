@@ -1,7 +1,8 @@
 baseurl = "/"
 languageCode = "en-us"
 title = "mikeroySoft"
-theme = "hugo-future-imperfect"
+theme = "mrs-imperfect"
+# fork of Hugo Future Imperfect
 preserveTaxonomyNames = true
 paginate = 3
 disqusShortname = "mikeroySoft"
@@ -37,8 +38,8 @@ canonifyURLs = true
   # Sets the Favicon and Version for the site. Default support is for
   # apple-touch-icon-precomposed.png, favicon.png, favicon.ico, and mstile.png.
   # These are stored in the favicon folder. See the following for more information:
-  # https://github.com/audreyr/favicon-cheat-sheet
-  loadFavicon          = false
+  # https://github.com/audreyr/favicon-cheat-sheet 
+  loadFavicon          = true
   faviconVersion       = ""
   # Sets Social Share links to appear on posts
   socialShare          = true
