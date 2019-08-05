@@ -1,12 +1,11 @@
 baseurl = "/"
 languageCode = "en-us"
-title = "mikeroySoft"
-theme = "mrs-imperfect"
-# fork of Hugo Future Imperfect
+title = "Hugo Future Imperfect"
+theme = "hugo-future-imperfect"
 preserveTaxonomyNames = true
 paginate = 3
-disqusShortname = "mikeroySoft"
-googleAnalytics = "UA-37100411-1"
+disqusShortname = "shortname"
+googleAnalytics = ""
 pluralizeListTitles = false
 # Set the followings to true as part of your site SEO
 enableRobotsTXT = true
@@ -14,9 +13,9 @@ canonifyURLs = true
 
 [params]
   # Sets the meta tag description
-  description          = "Product Manager, Solving problems so people can solve more problems"
+  description          = "HTML5 UP theme, Future Imperfect with some extra goodies, ported by Julio Pescador. Powered by Hugo"
   # Sets the navbarTitle that appears in the top left of the navigation bar
-  navbarTitle          = "mikeroySoft"
+  navbarTitle          = "Future Imperfect"
   # Sets where "View More Posts" links
   viewMorePostLink     = "/blog/"
 
@@ -24,8 +23,8 @@ canonifyURLs = true
   # Sets navbarTitle to match the section of the website
   dynamicTitles        = true
   # Sets RSS icons to appear on the sidebar with the social media buttons
-  rssAppearAtTop       = false
-  rssAppearAtBottom    = false
+  rssAppearAtTop       = true
+  rssAppearAtBottom    = true
   # Sets Social Media icons to appear on the sidebar
   socialAppearAtTop    = true
   socialAppearAtBottom = true
@@ -38,14 +37,14 @@ canonifyURLs = true
   # Sets the Favicon and Version for the site. Default support is for
   # apple-touch-icon-precomposed.png, favicon.png, favicon.ico, and mstile.png.
   # These are stored in the favicon folder. See the following for more information:
-  # https://github.com/audreyr/favicon-cheat-sheet 
-  loadFavicon          = true
+  # https://github.com/audreyr/favicon-cheat-sheet
+  loadFavicon          = false
   faviconVersion       = ""
   # Sets Social Share links to appear on posts
   socialShare          = true
   # Sets specific share to appear on posts (default behavior is to appear)
   socialShareTwitter   = true
-  socialShareGoogleplus = false
+  socialShareGoogleplus = true
   socialShareFacebook  = true
   socialShareReddit    = true
   socialShareLinkedin  = true
@@ -88,21 +87,22 @@ canonifyURLs = true
   # These are optional params related to the sidebar. They are recommended, but not
   # required for proper functionality. HTML is supported within the params.
 [params.intro]
-  header    = "mikeroySoft"
+  header    = "Hugo Future Imperfect"
 
-  paragraph = "Just Michael Roy writing about Software"
+  paragraph = "Another fine responsive site template by <a href=\"http://html5up.net\">HTML5 UP</a>. Ported by Julio Pescador with some extra goodies <i class='fa fa-hand-peace-o'></i>"
 
-  about     = "Product Manager, Solving problems so people can solve more problems. I am also a pirate"
+  about     = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tellus lacus, auctor vehicula molestie quis, tempor quis velit. Quisque in quam ac leo efficitur vulputate. Phasellus ullamcorper aliquam sodales. Maecenas sit amet condimentum ipsum. Proin sit amet ligula elit. Mauris."
+
   # This appears at the top of the sidebar above params.intro.header.
   # A width of less than 100px is recommended from a design perspective.
   [params.intro.pic]
-    src       = "/img/main/profile.png"
+    src       = "/img/main/logo.jpg"
     # Sets Image to be a cirlce
-    circle    = true
+    circle    = false
     # Sets Image to be Future Imperfect's hexagon
-    imperfect = false
-    width     = "150"
-    alt       = "alternate text"
+    imperfect = true
+    width     = ""
+    alt       = "Hugo Future Imperfect"
 
 [params.postAmount]
 # Sets the number of recent posts to show in the sidebar. The default value is 5.
@@ -128,11 +128,11 @@ canonifyURLs = true
   identifier = "fa fa-newspaper-o"
   weight = 3
 
-# [[menu.main]]
-#   name = "Projects"
-#   url = "/projects/"
-#   identifier = "fa fa-list"
-#   weight = 4
+[[menu.main]]
+  name = "Itemized"
+  url = "/itemized/"
+  identifier = "fa fa-list"
+  weight = 4
 
 [[menu.main]]
   name = "Categories"
@@ -140,41 +140,41 @@ canonifyURLs = true
   identifier = "fa fa-sitemap"
   weight = 5
 
-# [[menu.main]]
-#   name = "Contact"
-#   url = "/contact/"
-#   identifier = "fa fa-envelope-o"
-#   weight = 6
+[[menu.main]]
+  name = "Contact"
+  url = "/contact/"
+  identifier = "fa fa-envelope-o"
+  weight = 6
 
 # Sets Social Media icons to appear and link to your account. Value should be your
 # username unless otherwise noted. These are the icons affected by socialAppearAtTop
 # and socialAppearAtBottom.
 [social]
   # Coding Communities
-  github           = "mikeroySoft"
-  gitlab           = "mikeroySoft"
+  github           = "jpescador/hugo-future-imperfect"
+  gitlab           = ""
   stackoverflow    = "" # User Number
   bitbucket        = ""
   jsfiddle         = ""
-  codepen          = "mikeroySoft"
+  codepen          = ""
   # Visual Art Communities
   deviantart       = ""
-  flickr           = ""
+  flickr           = "example"
   behance          = ""
   dribbble         = ""
   # Publishing Communities
   wordpress        = ""
   medium           = ""
   # Professional/Business Oriented Communities
-  linkedin         = "mikeroySoft"
-  linkedin_company = ""
+  linkedin         = "example"
+  linkedin_company = "examplebusiness"
   foursquare       = ""
   xing             = ""
   slideshare       = ""
   # Social Networks
-  facebook         = ""
+  facebook         = "example"
   googleplus       = ""
-  reddit           = "mikeroySoft"
+  reddit           = "example"
   quora            = ""
   youtube          = ""
   vimeo            = ""
@@ -182,16 +182,16 @@ canonifyURLs = true
     # WeChat and QQ need testing.
     wechat         = ""
     qq             = "" # User ID Number
-  instagram        = "mikeroySoft"
+  instagram        = "example"
   tumblr           = ""
-  twitter          = "mikeroySoft"
+  twitter          = "example"
   skype            = ""
   snapchat         = ""
-  pinterest        = ""
-  telegram         = ""
+  pinterest        = "example"
+  telegram         = "example"
   vine             = ""
   googlescholar    = ""
   orcid            = ""
-  researchgate     = ""
+  researchgate     = "example"
   # Email
-  email            = ""
+  email            = "example"
