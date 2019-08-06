@@ -6,7 +6,7 @@ date = "2019-07-01"
 description = "A quick background about me"
 featured = "mrs-lillypad.jpg"
 featuredalt = "Pic 3"
-featuredpath = "date"
+featuredpath = ""
 linktitle = ""
 title = "About Mike"
 type = "post"
@@ -37,10 +37,10 @@ In 2015 I took an opportunity within the company to go back to my roots and lead
 
 In the years since I've moved into a dual-role and drive Product Management as well as Marketing for VMware Desktop Hypevisors with a responsibility to drive the business group as a whole.
 
-### Outside of work tho?
+### Outside of work
 
 I enjoy making music, and sometimes post stuff over here:
-https://soundcloud.com/michael-helix 
+https://soundcloud.com/michael-helix
 
 I enjoy solving problems with software, and contributing to open source is fun:
 https://github.com/mikeroySoft
