@@ -1,0 +1,3 @@
+.circleci/* merge=ours
+man-yaml/* merge=ours
+mrs-www-helm merge=ours
