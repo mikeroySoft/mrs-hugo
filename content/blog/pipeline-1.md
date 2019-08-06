@@ -9,7 +9,6 @@ featuredpath = "/img/2019/07/"
 linktitle = "link-title"
 title = "mikeroySoft Pipeline Overview"
 type = "post"
-draft = true
 +++
 
 ## the mikeroysoft.com pipeline
