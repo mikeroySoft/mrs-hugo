@@ -130,7 +130,7 @@ jobs:
               --namespace=default \
               --wait \
               --install \
-              --values mrs-www-helm/values.yaml \
+              --values mrs-www/values.yaml \
               --set image.repository=$DOCKER_IMAGE
 
 # just build          
