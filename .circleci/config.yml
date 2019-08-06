@@ -126,13 +126,12 @@ jobs:
       - run:
           name: Deploy application with Helm
           command: |
-            helm upgrade mrs-www-dev ./mrs-www-helm \
-              --namespace=mrs-www-dev \
+            helm upgrade mrs-www-dev ./mrs-www \
+              --namespace=default \
               --wait \
               --install \
               --values mrs-www-helm/values.yaml \
-              --set image.repository=$DOCKER_IMAGE \
-              # --set image.tag=$CIRCLE_TAG
+              --set image.repository=$DOCKER_IMAGE
 
 # just build          
 # workflows:
