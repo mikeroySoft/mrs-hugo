@@ -131,7 +131,8 @@ jobs:
               --wait \
               --install \
               --values mrs-www/values.yaml \
-              --set image.repository=$DOCKER_IMAGE
+              --set image.repository=$DOCKER_IMAGE \
+              --recreate-pods
 
 # just build          
 # workflows:
