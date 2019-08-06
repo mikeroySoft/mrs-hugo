@@ -6,7 +6,7 @@ date = "2019-07-01"
 description = "A quick background about me"
 featured = "mrs-lillypad.jpg"
 featuredalt = "Pic 3"
-featuredpath = ""
+featuredpath = "/img/2019/07/"
 linktitle = ""
 title = "About Mike"
 type = "post"
@@ -48,8 +48,8 @@ https://github.com/mikeroySoft
 Oh, and I'm also a professional Pirate!
 https://mermaidandmom.com/
 
-![alt-text](/img/2019/07/mike-pirate-2019.jpg "Ooh, treasure!")
+![alt-text](/img/main/mike-pirate-2019.jpg "Ooh, treasure!")
 
 I mean, you're really hiring the mermaids, but they need help getting around, you see!
-![alt-text](/img/2019/07/mike-carry-mermaid-2019.jpg "The tail is the heavy part")
+![alt-text](/img/main/mike-carry-mermaid-2019.jpg "The tail is the heavy part")
 Photos taken by the amazing Stephen Johnson at the [Northern California Pirate Festival, 2019](https://www.norcalpiratefestival.com/)

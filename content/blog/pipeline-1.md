@@ -3,18 +3,18 @@ author = "Michael Roy"
 categories = ["Hugo"]
 date = "2019-07-26"
 description = "A quick rundown of the pipeline that powers this site"
-featured = "pic01.jpg"
+featured = "pipeline.jpg"
 featuredalt = "Pic 1"
-featuredpath = ""
-linktitle = ""
+featuredpath = "/img/2019/07/"
+linktitle = "link-title"
 title = "mikeroySoft Pipeline Overview"
-type = "draft"
-
+type = "post"
+draft = true
 +++
 
 ## the mikeroysoft.com pipeline
 
-As I mentioned in **[this post](https://www.mikeroysoft.com/blog/2019-07/go-for-hugo/)**, I had the desire to move off of Wordpress for some time. Maintaining it just was getting boring.
+As I mentioned in **[this post](/blog/go-for-hugo/)**, I had the desire to move off of Wordpress for some time. Maintaining it just was getting boring.
 
 My wp installation, which was on an Ubuntu VM 'in the cloud' with a seperate VM for the db, kept running into issues. The docker image cache would fill up, and it kept getting hacked. Seemed like a great exercise to move my blog to something more 'cloud native' by way of using containers, kubernetes, and a continuously deploying pipeline.
 

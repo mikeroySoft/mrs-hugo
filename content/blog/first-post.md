@@ -1,12 +1,12 @@
 +++
 author = "Michael Roy"
-categories = ["Go"]
+categories = ["Go", "blog"]
 date = "2019-07-02"
 description = ""
 featured = "mrs-lillypad.jpg"
 featuredalt = "Train"
-featuredpath = ""
-linktitle = ""
+featuredpath = "/img/2019/07/"
+linktitle = "Link Title :)"
 title = "First Post!"
 type = "post"
 

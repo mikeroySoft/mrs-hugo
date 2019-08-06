@@ -62,12 +62,13 @@ canonifyURLs = true
   customJS             = ["default"]
 
   # options for highlight.js (version, additional languages, and theme)
-  disable_highlight = false # set to true to disable Highlight
-  highlightjsVersion = "9.11.0"
-  highlightjsCDN = "//cdn.bootcss.com"
-  highlightjsLang = ["r", "yaml", "css"]
+  disable_highlight = true # set to true to disable Highlight
+  highlightjsVersion = "9.15.9"
+  # highlightjsCDN = "//cdn.bootcss.com"
+  highlightjsCDN = "//cdnjs.cloudflare.com"
+  highlightjsLang = ["yaml", "css", "bash", "go"]
   highlightjsTheme = "github"
-  MathJaxCDN = "//cdn.bootcss.com"
+  MathJaxCDN = "//cdnjs.cloudflare.com"
   MathJaxVersion = "2.7.1"
 
 # Disqus will take priority over Staticman (github.com/eduardoboucas/staticman)
@@ -176,7 +177,7 @@ canonifyURLs = true
   googleplus       = ""
   reddit           = "mikeroySoft"
   quora            = ""
-  youtube          = ""
+  youtube          = "mikeroysoft"
   vimeo            = ""
   whatsapp         = "" # WhatsApp Number
     # WeChat and QQ need testing.
