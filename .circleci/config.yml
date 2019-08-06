@@ -7,10 +7,11 @@
 # Branches:
 # - Master
 # - Stable
+# - dev
 # - 'versioned' (v0.1.3)
 
-# This is _STABLE_ branch
-# $CIRCLE_BRANCH =  stable
+# This is _DEV_ branch
+# $CIRCLE_BRANCH =  dev
 
 version: 2
 jobs:
@@ -94,7 +95,7 @@ jobs:
           name: Push the Docker Image
           command: docker push $DOCKER_IMAGE:$CIRCLE_BRANCH
 
-  deploy_stable:
+  deploy_dev:
     docker:
       - image: scotwells/helm-docker
     steps:
@@ -126,10 +127,10 @@ jobs:
           name: Deploy application with Helm
           command: |
             helm upgrade mrs-www-deployment ./mrs-www-helm \
-              --namespace=$KUBERNETES_NAMESPACE \
+              --namespace=mrs-dev-namespace \
               --wait \
               --install \
-              --values mrs-www/values.yaml \
+              --values mrs-www-helm/values.yaml \
               --set image.repository=$DOCKER_IMAGE \
               # --set image.tag=$CIRCLE_TAG
 
@@ -140,21 +141,21 @@ jobs:
 #     jobs:
 #       - build_branch
 
-# build_branch and then, if branch=stable, deploy 
+# build_branch and then, if branch=dev, deploy 
 
 workflows:
   version: 2
-  build_branch_and_deploy_stable:
+  build_branch_and_deploy_dev:
     jobs:
       - build_branch
-      - deploy_stable:
+      - deploy_dev:
           requires:
             - build_branch
           filters:
             tags:
               only: /^v\d+.\d+.\d+$/
             branches:
-              only: /^stable$/
+              only: /^dev$/
 
 
 # 
