@@ -13,8 +13,8 @@ image:
 
 imagePullSecrets: 
   - name: mrs-regcred
-nameOverride: "mrs-www-rel"
-fullnameOverride: "mrs-www"
+nameOverride: "mrs-www-prod"
+fullnameOverride: "mrs-www-prod"
 
 service:
   type: ClusterIP
