@@ -49,9 +49,10 @@ canonifyURLs = true
   socialShareFacebook  = true
   socialShareReddit    = true
   socialShareLinkedin  = true
-  socialShareStumbleupon = true
+  socialShareStumbleupon = false
   socialSharePinterest = true
-  socialShareEmail     = true
+  socialShareEmail     = false
+  socialShareCopy     = true
 
   # Load custom CSS or JavaScript files. The variable is an array so that you
   # can load multiple files if necessary. You can also load the standard theme
@@ -196,3 +197,4 @@ canonifyURLs = true
   researchgate     = ""
   # Email
   email            = ""
+  copy             = ""

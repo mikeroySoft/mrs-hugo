@@ -1,6 +1,6 @@
 +++
 author = "Michael Roy"
-categories = ["Hugo"]
+categories = ["hugo", "blog"]
 date = "2019-07-26"
 description = "A quick rundown of the pipeline that powers this site"
 featured = "pipeline.jpg"
