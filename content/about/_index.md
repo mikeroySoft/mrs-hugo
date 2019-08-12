@@ -1,7 +1,6 @@
 +++
 author = "Michael Roy"
 categories = ["About"]
-tags = ["about"]
 date = "2019-07-01"
 description = "A quick background about me"
 featured = "mrs-lillypad.jpg"
@@ -10,6 +9,7 @@ featuredpath = "/img/2019/07/"
 linktitle = ""
 title = "About Mike"
 type = "post"
+
 +++
 
 **tl;dr**: I've spent the past 10 years at VMware, doing all kinds of techy-producty things. I ran a small data center in Toronto before that. Before _that_ I ran my own small web development shop and worked for a local startup that you've never heard of. I am also a pirate.

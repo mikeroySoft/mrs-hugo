@@ -1,6 +1,6 @@
 +++
 author = "Michael Roy"
-categories = ["Go", "blog"]
+categories = ["Go", "Blog"]
 date = "2019-07-02"
 description = ""
 featured = "mrs-lillypad.jpg"

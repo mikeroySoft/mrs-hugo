@@ -1,7 +1,6 @@
 +++
 author = "Michael Roy"
 categories = ["Blog", "Hugo"]
-tags = ["tutorial"]
 date = "2019-07-20"
 description = "Transitioned away from Wordpress to Hugo"
 featured = "mrs-train.jpg"
