@@ -2857,19 +2857,19 @@
 	.share-btn.facebook    { background: #3B5998; }
 	.share-btn.linkedin    { background: #4875B4; }
 	.share-btn.stumbleupon { background: #EB4823; }
-	.share-btn.pinterest	 { background: #BD081C; }
-	.share-btn.reddit      { background: #ff5700; }
+	.share-btn.pinterest   { background: #941c1c; }
+	.share-btn.reddit      { background: #e54e00; }
 	.share-btn.email       { background: #444444; }
 	.share-btn.copy       { background: #444444; }
 
 	/* hovers */
-	  .share-btn.twitter:hover     { background: #4c9ad6; }
+	  .share-btn.twitter:hover     { background: #3d7dae; }
 	  .share-btn.google-plus:hover { background: #c64333; }
 	  .share-btn.facebook:hover    { background: #2f4779; }
 	  .share-btn.linkedin:hover    { background: #4069a2; }
 	  .share-btn.stumbleupon:hover { background: #d3401f; }
-	  .share-btn.pinterest:hover   { background: #AD0000; }
-	  .share-btn.reddit:hover      { background: #e54e00; }
+	  .share-btn.pinterest:hover   { background: #8e0b0b; }
+	  .share-btn.reddit:hover      { background: #cd5519; }
 	  .share-btn.email:hover       { background: #363636; }
 	  .share-btn.copy:hover       { background: #363636; }
 
@@ -2897,7 +2897,7 @@
 			-ms-transition: -ms-transform 0.5s ease, visibility 0.5s;
 			transition: transform 0.5s ease, visibility 0.5s;
 			-webkit-overflow-scrolling: touch;
-			background: #ffffff;
+			background: #505050;
 			border-left: solid 1px rgba(160, 160, 160, 0.3);
 			box-shadow: none;
 			height: 100%;
