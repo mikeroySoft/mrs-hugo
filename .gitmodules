@@ -1,0 +1,7 @@
+[submodule "themes/mrs-imperfect-slim"]
+	path = themes/mrs-imperfect-slim
+	url = https://github.com/mikeroySoft/mrs-imperfect-slim.git
+
+[submodule "content"]
+	path = content
+	url = https://github.com/mikeroySoft/mrs-content.git
