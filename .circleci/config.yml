@@ -77,11 +77,11 @@ jobs:
       # Pull the submodules
       # right now it's just the theme, but let's add the content here later on
       # Disable this for now
-      # - run:
-      #     name: "Pull Submodules"
-      #     command: |
-      #       git submodule init
-      #       git submodule update --remote
+      - run:
+          name: "Pull Submodules"
+          command: |
+            git submodule init
+            git submodule update --remote
      
      # Setting up the remote Docker
       - setup_remote_docker
