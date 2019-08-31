@@ -162,7 +162,7 @@ workflows:
   build_branch_and_deploy_stable:
     jobs:
       - build_branch
-      - deploy_dev:
+      - deploy_stable:
           requires:
             - build_branch
           filters:
