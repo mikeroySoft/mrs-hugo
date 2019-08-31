@@ -2,3 +2,5 @@
 *.tgz
 *DS_Store
 .DS_Store
+public/.
+resoureces/.

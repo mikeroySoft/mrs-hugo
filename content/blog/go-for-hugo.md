@@ -1,12 +1,11 @@
 +++
 author = "Michael Roy"
 categories = ["Blog", "Hugo"]
-tags = ["tutorial"]
 date = "2019-07-20"
 description = "Transitioned away from Wordpress to Hugo"
 featured = "mrs-train.jpg"
 featuredalt = "lilly pads, yo"
-featuredpath = "date"
+featuredpath = "/2019/07/"
 linktitle = ""
 title = "Go for Hugo"
 type = "post"

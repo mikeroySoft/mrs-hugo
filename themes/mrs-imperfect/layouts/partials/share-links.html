@@ -80,3 +80,16 @@
   </a>
 </li>
 {{ end }}
+
+<!-- Copy URL -->
+<!-- new, made by Michael Roy =) -->
+<!-- To Do: Figure out how to replace the mailto with somethig that will copy to the clipboard -->
+
+{{ if .Site.Params.socialShareCopy | default true}}
+<li>
+  <a href="{{ .Permalink }}" target="_blank" class="share-btn copy">
+    <i class="fa fa-copy"></i>
+    <p>copy</p>
+  </a>
+</li>
+{{ end }}

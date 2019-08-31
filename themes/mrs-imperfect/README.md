@@ -1,4 +1,6 @@
-# Hugo Future Imperfect
+# mrs-imperfect
+
+mrs-imperfect is a port of Hugo Future Imperfect.
 
 Future Imperfect is a responsive theme tailored for blogging. The name is of no
 coincidence, because it is a port of [HTML5 UP's theme](http://html5up.net/future-imperfect)
@@ -98,7 +100,7 @@ turn a function on, while _false_ means to turn a function off.
 
 This file consists of six main sections. The first section contains the site wide
 parameters innate to Hugo. The second section, _[params]_, contains site wide
-parameter that are custom to the _hugo-future-imperfect_ theme. The third section,
+parameter that are custom to the _mrs-imperfect_ theme. The third section,
 _[params.staticman]_ controls how staticman comments interact with your repository.
 The fourth section, _[params.intro]_ and _[params.postAmount]_, control aspects
 of the sidebar. The fifth section, _[[menu.main]]_, sets the navigation menu items.
