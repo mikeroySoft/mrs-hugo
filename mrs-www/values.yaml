@@ -4,6 +4,7 @@
 #
 # MASTER BRANCH
 
+
 replicaCount: 3
 
 image:
@@ -13,6 +14,7 @@ image:
 
 imagePullSecrets: 
   - name: mrs-regcred
+
 nameOverride: "mrs-www-prod"
 fullnameOverride: "mrs-www-prod"
 
