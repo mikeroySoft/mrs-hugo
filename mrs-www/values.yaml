@@ -4,17 +4,20 @@
 #
 # MASTER BRANCH
 
-replicaCount: 1
+
+replicaCount: 3
 
 image:
   repository: mikeroysoft/mrs-hugo
-  tag: dev
+  tag: stable
   pullPolicy: Always
 
 imagePullSecrets: 
   - name: mrs-regcred
-nameOverride: "mrs-www-dev"
-fullnameOverride: "mrs-www-dev"
+
+nameOverride: "mrs-www-rel"
+fullnameOverride: "mrs-www"
+
 
 service:
   type: ClusterIP
@@ -24,7 +27,7 @@ ingress:
   enabled: true
   path: /
   hosts: 
-    - dev.mikeroysoft.com
+    - www.mikeroysoft.com
   
   annotations: 
     kubernetes.io/ingress.class: nginx
@@ -34,7 +37,7 @@ ingress:
   tls:
      - secretName: letsencrypt-prod
        hosts:
-         - dev.mikeroysoft.com
+         - www.mikeroysoft.com
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
