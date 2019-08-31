@@ -24,7 +24,6 @@ ingress:
   enabled: true
   path: /
   hosts: 
-    - www.mikeroysoft.com
     - mikeroysoft.com
   
   annotations: 
@@ -35,7 +34,6 @@ ingress:
   tls:
      - secretName: letsencrypt-prod
        hosts:
-         - www.mikeroysoft.com
          - mikeroysoft.com
 
 resources: {}
