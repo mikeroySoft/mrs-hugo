@@ -15,9 +15,8 @@ image:
 imagePullSecrets: 
   - name: mrs-regcred
 
-nameOverride: "mrs-www-rel"
-fullnameOverride: "mrs-www"
-
+nameOverride: "mrs-www-prod"
+fullnameOverride: "mrs-www-prod"
 
 service:
   type: ClusterIP
@@ -27,17 +26,19 @@ ingress:
   enabled: true
   path: /
   hosts: 
-    - www.mikeroysoft.com
+    - mikeroysoft.com
+
   
   annotations: 
     kubernetes.io/ingress.class: nginx
     certmanager.k8s.io/cluster-issuer: letsencrypt-prod
-#    kubernetes.io/tls-acme: "true"
+    kubernetes.io/tls-acme: "true"
  
   tls:
      - secretName: letsencrypt-prod
        hosts:
-         - www.mikeroysoft.com
+         - mikeroysoft.com
+
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

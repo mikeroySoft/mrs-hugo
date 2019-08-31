@@ -126,8 +126,8 @@ jobs:
       - run:
           name: Deploy application with Helm
           command: |
-            helm upgrade mrs-www-dev ./mrs-www \
-              --namespace=default \
+            helm upgrade mrs-www-prod ./mrs-www \
+              --namespace=$KUBERNETES_NAMESPACE \
               --wait \
               --install \
               --values mrs-www/values.yaml \
