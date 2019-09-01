@@ -2,21 +2,21 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 #
-# MASTER BRANCH
+# DEV BRANCH
 
 
-replicaCount: 3
+replicaCount: 1
 
 image:
   repository: mikeroysoft/mrs-hugo
-  tag: stable
+  tag: dev
   pullPolicy: Always
 
 imagePullSecrets: 
   - name: mrs-regcred
 
-nameOverride: "mrs-www-rel"
-fullnameOverride: "mrs-www"
+nameOverride: "mrs-www-dev"
+fullnameOverride: "mrs-www-dev"
 
 
 service:
@@ -27,7 +27,7 @@ ingress:
   enabled: true
   path: /
   hosts: 
-    - www.mikeroysoft.com
+    - dev.mikeroysoft.com
   
   annotations: 
     kubernetes.io/ingress.class: nginx
@@ -37,7 +37,7 @@ ingress:
   tls:
      - secretName: letsencrypt-prod
        hosts:
-         - www.mikeroysoft.com
+         - dev.mikeroysoft.com
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

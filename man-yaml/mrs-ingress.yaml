@@ -5,30 +5,23 @@ metadata:
     certmanager.k8s.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/ingress.class: nginx
   labels:
-    app.kubernetes.io/instance: mrs-www-prod
+    app.kubernetes.io/instance: mrs-www-dev
     app.kubernetes.io/managed-by: Tiller
-    app.kubernetes.io/name: mrs-www-prod
-    helm.sh/chart: mrs-www-0.2.21
-  name: mrs-www-prod
+    app.kubernetes.io/name: mrs-www-dev
+    helm.sh/chart: mrs-www-0.3.2
+  name: mrs-www-dev
   namespace: default
 spec:
   rules:
-  - host: mikeroysoft.com
+  - host: dev.mikeroysoft.com
     http:
       paths:
       - backend:
-          serviceName: mrs-www-prod
+          serviceName: mrs-www-dev
           servicePort: http
         path: /
-  - host: www.mikeroysoft.com
-    http:
-      paths:
-      - backend:
-          serviceName: mrs-www-prod
-          servicePort: http
-        path: /      
+        
   tls:
   - hosts:
-    - www.mikeroysoft.com
-    - mikeroysoft.com
-    secretName: mrs-www-prod-certificates
+    - dev.mikeroysoft.com
+    secretName: mrs-www-dev-certificates
