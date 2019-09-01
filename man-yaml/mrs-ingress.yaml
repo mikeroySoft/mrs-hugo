@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/instance: mrs-www-prod
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/name: mrs-www-prod
-    helm.sh/chart: mrs-www-0.2.21
+    helm.sh/chart: mrs-www-0.3.3
   name: mrs-www-prod
   namespace: default
 spec:
