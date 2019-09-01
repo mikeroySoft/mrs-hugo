@@ -2,70 +2,14 @@
 # This puppy will build our container using a standard docker:stable-git container
 # It will tag the build with the git tag applied ($CIRCLE_TAG)
 # Once built it will push the image to docker hub
-#
-# To do: Deploy this image with Helm
-# Branches:
-# - Master
-# - Stable
-# - dev
-# - 'versioned' (v0.1.3)
+# Once we have pushed to docker hub (i.e. the 'build_branch' job completes)
+# we then deploy the new image to production using helm
 
-# This is _DEV_ branch
+# This is the STABLE branch
 # $CIRCLE_BRANCH =  stable
 
 version: 2
 jobs:
-  # Create a job to build our Hugo site using Docker 
-  # 2 jobs: build_tag and build_branch
-  # build_tag will execute when Circle gets a webhook notification about a new tag (i.e. v0.1.[n+1])
-  # It will pull the included submodules, build the image, and push to docker hub with the repo tag as the image tag.
-  # (i.e. mikeroysoft/mrs-hugo:v0.1.n)
-  #
-  # build_branch will execute when there is a new commit on any branch
-  # It will pull the submodules, build the image and push to docker hub with the Branch as the image tag
-  # (i.e. mikeroysoft/mrs-hugo:stable)
-  #
-  # To figure out:
-  # How to get $CIRCLE_TAG to populate when there isn't a new tag, or to skip build_tag if there is no new tag 
-  # Logic to build one or the other (v0.x.x or :stable, or both at the same time)... 
-  # Logic to build to 'latest' without hard-coding it
-  # Maybe just skip circle_tag for now, and build only on branch?
-  #
-  # -- BEGIN BUILD_TAG --  
-  # build_tag:
-  #   docker:
-  #     # Since Circle CI needs to be able to clone our repository from GitHub, BitBucket, etc,
-  #     # we need to use a docker image that has the git binary installed
-  #     - image: docker:stable-git
-  #   steps:
-  #     - checkout
-      
-  #     # Pull the submodules
-  #     # right now it's just the theme, but let's add the content here later on
-  #     - run:
-  #         name: "Pull Submodules"
-  #         command: |
-  #           git submodule init
-  #           git submodule update --remote
-
-  #     # setting up the remote Docker 
-  #     - setup_remote_docker
-  #     - run:
-  #         name: Login to the Docker Registry
-  #         command: echo $DOCKER_PASS | docker login --username $DOCKER_USER --password-stdin
-  #     - run:
-  #         name: What is CIRCLE_TAG ?
-  #         command: echo $CIRCLE_TAG    
-  #     - run:
-  #         name: Build the Docker Image
-  #         command: docker build -t $DOCKER_IMAGE:$CIRCLE_TAG .
-  #     - run:
-  #         name: Push the Docker Image
-  #         command: docker push $DOCKER_IMAGE:$CIRCLE_TAG
-  #     - run:
-  #         name: What is CIRCLE_TAG ?
-  #         command: echo $CIRCLE_TAG    
-
   build_branch:
     docker:
       # Since Circle CI needs to be able to clone our repository from GitHub, BitBucket, etc,
@@ -73,17 +17,8 @@ jobs:
       - image: docker:stable-git
     steps:
       - checkout
-     
-      # Pull the submodules
-      # right now it's just the theme, but let's add the content here later on
-      # Disable this for now
-      # - run:
-      #     name: "Pull Submodules"
-      #     command: |
-      #       git submodule init
-      #       git submodule update --remote
-     
-     # Setting up the remote Docker
+   
+      # Setting up the remote Docker
       - setup_remote_docker
       - run:
           name: Login to the Docker Registry
@@ -117,10 +52,6 @@ jobs:
       - run:
           name: Set K8s Context
           command: kubectl config use-context default
-      # - run:
-      #     name: Is there an echo in here?
-      #     command: echo CIRCLE_TAG = $CIRCLE_TAG && \
-      #       echo CIRCLE_BRANCH = $CIRCLE_BRANCH 
 
       # deploy the application using Helm
       - run:
@@ -133,29 +64,6 @@ jobs:
               --values mrs-www/values.yaml \
               --set image.repository=$DOCKER_IMAGE \
               --recreate-pods
-
-# just build          
-# workflows:
-#   version: 2
-#   build_branch:
-#     jobs:
-#       - build_branch
-
-# build_branch and then, if branch=dev, deploy 
-
-# workflows:
-#   version: 2
-#   build_branch_and_deploy_dev:
-#     jobs:
-#       - build_branch
-#       - deploy_dev:
-#           requires:
-#             - build_branch
-#           filters:
-#             tags:
-#               only: /^v\d+.\d+.\d+$/
-#             branches:
-#               only: /^dev$/
 
 workflows:
   version: 2
@@ -170,44 +78,3 @@ workflows:
               only: /^v\d+.\d+.\d+$/
             branches:
               only: /^stable$/
-
-
-
-# 
-# Build_tag and build_branch workflow          
-# workflows:
-#   version: 2
-#   build_tag_and_build_branch:
-#     jobs:
-#       - build_tag:
-#           filters:
-#             tags:
-#               only: /^v.*/
-#       - build_branch
-
-# To do:
-# Create Build - Test - Accept - Deploy workflow here
-
-# workflows:
-#   version: 2
-#   build_accept_deploy:
-#     jobs:
-#       - build
-#       - acceptance_test_1:
-#           requires:
-#             - build
-#       - acceptance_test_2:
-#           requires:
-#             - build
-#       - acceptance_test_3:
-#           requires:
-#             - build
-#       - acceptance_test_4:
-#           requires:
-#             - build
-#       - deploy:
-#           requires:
-#             - acceptance_test_1
-#             - acceptance_test_2
-#             - acceptance_test_3
-#             - acceptance_test_4
