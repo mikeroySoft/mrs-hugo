@@ -7,21 +7,21 @@ metadata:
   labels:
     app.kubernetes.io/instance: mrs-www-dev
     app.kubernetes.io/managed-by: Tiller
-    app.kubernetes.io/name: mrs-www-dev
-    helm.sh/chart: mrs-www-0.3.2
-  name: mrs-www-dev
+    app.kubernetes.io/name: mrs-www-prod
+    helm.sh/chart: mrs-www-0.3.3
+  name: mrs-www-prod
   namespace: default
 spec:
   rules:
-  - host: dev.mikeroysoft.com
+  - host: www.mikeroysoft.com
     http:
       paths:
       - backend:
-          serviceName: mrs-www-dev
+          serviceName: mrs-www-prod
           servicePort: http
         path: /
         
   tls:
   - hosts:
-    - dev.mikeroysoft.com
-    secretName: mrs-www-dev-certificates
+    - www.mikeroysoft.com
+    secretName: mrs-www-certificates
