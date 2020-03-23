@@ -7,7 +7,7 @@ featured = "fling-lander.png"
 featuredalt = "folding at home"
 featuredpath = "/2020/03/"
 linktitle = "Fighting COVID-19 with Fusion"
-title = "Fighting the COVID-19 with Fusion"
+title = "Fighting the COVID-19 Coronavirus with VMware Fusion and Folding At Home"
 type = "post"
 
 +++
