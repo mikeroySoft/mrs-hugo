@@ -10,6 +10,8 @@ pluralizeListTitles     = false
 disableLanguages        = ["fr, pl, br"]
 
 [params]
+
+  mainSections = ["blog", "post"]
   enableCDN             = false
   # Loads CSS and JavaScript files. The variable is an array so that you can load
   # multiple/additional files if necessary. The standard theme files can be loaded
@@ -72,7 +74,7 @@ disableLanguages        = ["fr, pl, br"]
       alt                 = "Itsa MEE!"
 
   [params.sidebar]
-    about               = "test"
+    about               = "I've spent the past 10 years at VMware, doing all kinds of techy-producty things."
     # Sets the number of recent posts to show in the sidebar. The default value is 5.
     postAmount          = 5
     # set to show or to hide categories in the sidebar

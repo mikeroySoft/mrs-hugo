@@ -6,7 +6,7 @@ description = ""
 featured = "mrs-lillypad.jpg"
 featuredalt = "Train"
 featuredpath = "/2019/07/"
-linktitle = "Link Title :)"
+linktitle = "First Post"
 title = "First Post!"
 type = "post"
 

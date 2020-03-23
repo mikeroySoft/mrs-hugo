@@ -6,7 +6,7 @@ description = "A quick rundown of the pipeline that powers this site"
 featured = "pipeline.jpg"
 featuredalt = "Pic 1"
 featuredpath = "/2019/07/"
-linktitle = "link-title"
+linktitle = "My Website Pipeline rundown"
 title = "mikeroySoft Pipeline Overview"
 type = "post"
 +++
