@@ -2,14 +2,14 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 #
-# DEV BRANCH
+# PROD BRANCH
 
 
-replicaCount: 1
+replicaCount: 3
 
 image:
   repository: mikeroysoft/mrs-hugo
-  tag: dev
+  tag: prod
   pullPolicy: Always
 
 imagePullSecrets: 
@@ -26,16 +26,16 @@ ingress:
   enabled: true
   path: /
   hosts: 
-   - www.mikeroysoft.com
-    annotations: 
-    kubernetes.io/ingress.class: nginx
-    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
-    kubernetes.io/tls-acme: "true"
+    - www.mikeroysoft.com
+  annotations:
+  kubernetes.io/ingress.class: nginx
+  certmanager.k8s.io/cluster-issuer: letsencrypt-prod
+  kubernetes.io/tls-acme: "true"
  
   tls:
      - secretName: letsencrypt-prod
        hosts:
-         - dev.mikeroysoft.com
+         - www.mikeroysoft.com
 
 
 resources: {}
