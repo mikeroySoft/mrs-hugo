@@ -2,4 +2,4 @@ apiVersion: v1
 appVersion: "0.3.3"
 description: Helm chart for mikeroysoft.com deployment on DO with SSL
 name: mrs-www
-version: 0.3.3
+version: 0.3.4
