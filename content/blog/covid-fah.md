@@ -136,10 +136,13 @@ You can check to see if it's running any jobs or do some troubleshooting: (from 
 ````
 
 2. You can restart the services with
+
 ````
 /etc/init.d/FAHClient stop /etc/init.d/FAHClient start
 ````
+
 Or
+
 ````
 /etc/init.d/FAHClient restart
 ````
@@ -149,7 +152,9 @@ You can then view the logs as below
 ````
 /etc/init.d/FAHClient log -v
 ````
+
 Or:
+
 ````
 less /var/lib/fahclient/log.txt
 ````
