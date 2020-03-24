@@ -157,11 +157,19 @@ less /var/lib/fahclient/log.txt
 Welcome to the front lines of the war against COVID-19!
 
 **Links:**
+
 * Appliance, FAQ and Instructions Download
+
     * **[Link: https://flings.vmware.com/vmware-appliance-for-folding-home](https://flings.vmware.com/vmware-appliance-for-folding-home)**
+    
 * Folding At Home
+
     * **[Link: https://foldingathome.org](https://foldingathome.org)**
+    
 * Team Fusion stats
+
     * **[Link: https://folding.extremeoverclocking.com/team_summary.php?s=&t=52737](https://folding.extremeoverclocking.com/team_summary.php?s=&t=52737)**
+    
     * **[Link: https://stats.foldingathome.org/team/52737](https://stats.foldingathome.org/team/52737)**
+    
 
