@@ -9,7 +9,7 @@ replicaCount: 3
 
 image:
   repository: mikeroysoft/mrs-hugo
-  tag: prod
+  tag: stable
   pullPolicy: Always
 
 imagePullSecrets: 
