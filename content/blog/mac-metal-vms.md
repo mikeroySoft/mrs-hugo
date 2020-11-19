@@ -1,6 +1,7 @@
 +++
 author = "Michael Roy"
 categories = ["fusion", "macOS", "Metal", "GPU"]
+tags = ["Fusion"]
 date = "2020-11-19"
 description = "Details for enabling Metal support in macOS Big Sur VMs"
 featured = "fusion-macos-metal.png"
@@ -14,9 +15,7 @@ type = "post"
 
 ## Enabling Metal Graphics in macOS Big Sur VMs
 
-With macOS Big Sur, Apple has given us a new set of features that will allow macOS virtual machines to achieve something long sought after: Acellerated 3D Grahpics with Metal!
-
-[Apple Developer: Paravirtual Graphics Documentation](https://developer.apple.com/documentation/paravirtualizedgraphics)
+With macOS Big Sur, Apple has given us a new set of features that will allow macOS virtual machines to achieve something long sought after: ***Acellerated 3D Grahpics with Metal!***
 
 While the feature isn't quite up to our quality bar just yet, we think it's far enough along to share with folks so we can gather feedback.
 
