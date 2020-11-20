@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mrs-www
+  name: mrs-www
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mrs-www
+  template:
+    metadata:
+      labels:
+        app: mrs-www
+    spec:
+      containers:
+      - image: ghcr.io/mikeroysoft/mrs-hugo:latest
+        name: mrs-www
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: mrs-www
+  name: mrs-www
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: mrs-www
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: mrs-www
+  labels:
+    app: mrs-www
+spec:
+  backend:
+    serviceName: mrs-www
+    servicePort: 80
