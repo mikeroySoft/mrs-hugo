@@ -15,7 +15,7 @@ type = "post"
 
 ## Enabling Metal Graphics in macOS Big Sur VMs
 
-With macOS Big Sur, Apple has given us a new set of features that will allow macOS virtual machines to achieve something long sought after: ***Acellerated 3D Grahpics with Metal!***
+With macOS Big Sur, Apple has given us a new set of features that will allow macOS virtual machines to achieve something long sought after: ***Accelerated 3D Graphics with Metal!***
 
 While the feature isn't quite up to our quality bar just yet, we think it's far enough along to share with folks so we can gather feedback.
 
