@@ -74,7 +74,7 @@ After rebooting when the installation finishes, everything should be good to go.
 
 The second method is to simply drag-and-drop the *vmtools* folder into the VM, and double-click the *darwin.iso* file. macOS will mount it, and you can double-click the Installer from there.
 
-You can verify by checking the Menu Bar Apple logo > About This Mac... If you see the '*Apple Paravirtual Graphics Device*' (like in the header image of this post), you're all set!
+You can verify by checking the Menu Bar Apple logo > About This Mac... If you see the '*Apple Paravirtualized Graphics Device*' (like in the header image of this post), you're all set!
 
 We're really excited about this feature, and are looking forward to the time when we consider this above our quality threshold and fit to be enabled by Default!
 
