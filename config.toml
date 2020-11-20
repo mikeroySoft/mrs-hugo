@@ -43,7 +43,7 @@ disableLanguages        = ["fr, pl, br"]
     # for the theme's naming.
     favicon             = true
     svg                 = true
-    faviconVersion      = "1"
+    faviconVersion      = ""
     msColor             = "#ffffff" # Copy from the https://realfavicongenerator.net
     iOSColor            = "#ffffff" # Copy from the https://realfavicongenerator.net
 

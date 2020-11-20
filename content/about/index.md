@@ -52,4 +52,6 @@ https://mermaidandmom.com/
 
 I mean, you're really hiring the mermaids, but they need help getting around, you see!
 ![alt-text](/img/main/mike-carry-mermaid-2019.jpg "The tail is the heavy part")
+
+
 Photos taken by the amazing Stephen Johnson at the [Northern California Pirate Festival, 2019](https://www.norcalpiratefestival.com/)
