@@ -52,7 +52,7 @@ appleGPU0.present="TRUE"
 ```
 
 
-Now, once that's done you can launch the VM, ***but you'll need to install the newest version of VMware Tools (11.2 as of this writing) inside the VM to support Resolution Changes.***
+Now, once that's done you can launch the VM, ***but you'll need to install the newest version of VMware Tools (11.2 as of this writing) inside the VM to support Resolution Changes.*** This version of Tools does not currently ship with Fusion so it must be downladed seperately.
 
 You can find Toolls 11.2 here: [VMware Tools 11.x Downloads](https://my.vmware.com/en/web/vmware/downloads/info/slug/datacenter_cloud_infrastructure/vmware_tools/11_x)
 
@@ -72,7 +72,9 @@ This can be done before or after adjusting the .vmx file as described above.
 
 After rebooting when the installation finishes, everything should be good to go.
 
-You can verify by checking the Menu Bar Apple logo > About This Mac... If you see the '*Apple Paravirtual Graphics Device*', you're all set!
+The second method is to simply drag-and-drop the *vmtools* folder into the VM, and double-click the *darwin.iso* file. macOS will mount it, and you can double-click the Installer from there.
+
+You can verify by checking the Menu Bar Apple logo > About This Mac... If you see the '*Apple Paravirtualized Graphics Device*' (like in the header image of this post), you're all set!
 
 We're really excited about this feature, and are looking forward to the time when we consider this above our quality threshold and fit to be enabled by Default!
 
