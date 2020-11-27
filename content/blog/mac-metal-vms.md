@@ -23,6 +23,8 @@ While this is possible with Fusion 12.0 and macOS 11.0, there are many critical 
 
 > **Note**: This is an ***experimental*** feature and is ***not*** recommended for production VMs... There are known bugs which may cause an immediate kernel panic of the VM (try connecting the FaceTime camera for a fun example!)
 
+> Additionally, this only applies to **Big Sur Hosts with Big Sur Guests**, it is ***not*** and will not be made possible with Catalina hosts or guests.
+
 > Also note that not all Metal shaders are supported yet, and OpenGL will not be supported.
 
 > Finally, on some systems we've noticed it takes what seems like a REALLY long time to boot, with the VM looking like it's frozen with the Apple logo and loading progress indicator.  Give it a minute, it should still boot. 
