@@ -15,7 +15,7 @@ spec:
         app: mrs-www
     spec:
       containers:
-      - image: ghcr.io/mikeroysoft/mrs-hugo:latest
+      - image: mikeroysoft/mrs-hugo:stable
         name: mrs-www
 ---
 apiVersion: v1
@@ -34,7 +34,7 @@ spec:
   sessionAffinity: None
   type: ClusterIP
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: mrs-www
