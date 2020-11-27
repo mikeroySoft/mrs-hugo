@@ -47,7 +47,8 @@ metadata:
     app: mrs-www-dev
 spec:
   rules:
-  - http:
+  - host: "dev.mikeroysoft.com"
+    http:
       paths:
       - path: /
       pathType: Prefix
