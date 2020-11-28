@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mrs-www-dev
+  name: mrs-www-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mrs-www-dev
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: mrs-www-dev
+    spec:
+      containers:
+      - image: docker.io/mikeroysoft/mrs-hugo:dev
+        name: mrs-www-dev
+        ports:
+        - containerPort: 80
+          name: http
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30 

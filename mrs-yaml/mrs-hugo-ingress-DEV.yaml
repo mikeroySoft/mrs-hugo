@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mrs-www-dev
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+    kubernetes.io/ingress.class: contour
+    kubernetes.io/tls-acme: "true"
+
+  labels:
+    app: mrs-www-dev
+spec:
+  tls: 
+  - secretName: mrs-www-dev
+  rules:
+  - host: "dev.mikeroysoft.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: mrs-www-dev
+            port:
+              number: 80

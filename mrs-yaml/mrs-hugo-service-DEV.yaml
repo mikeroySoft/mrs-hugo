@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: mrs-www-dev
+  name: mrs-www-dev
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: mrs-www-dev
+  sessionAffinity: None
+  type: ClusterIP

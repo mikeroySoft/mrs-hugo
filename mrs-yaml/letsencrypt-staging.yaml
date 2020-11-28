@@ -7,7 +7,7 @@ spec:
   acme:
     email: mike@mikeroysoft.com
     privateKeySecretRef:
-      name: mrs-www-stage-certificates
+      name: letsencrypt-staging
     # Enable the HTTP-01 challenge provider
     server: https://acme-staging-v02.api.letsencrypt.org/directory
     solvers:
