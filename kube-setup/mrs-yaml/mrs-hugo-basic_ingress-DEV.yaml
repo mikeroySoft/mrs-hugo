@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mrs-www-dev
+spec:
+  rules:
+  - host: "dev.mikeroysoft.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: mrs-www-dev
+            port:
+              number: 80

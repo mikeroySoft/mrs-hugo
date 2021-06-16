@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mrs-www-prod
+  name: mrs-www-prod
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mrs-www-prod
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: mrs-www-prod
+    spec:
+      containers:
+      - image: docker.io/mikeroysoft/mrs-hugo:stable
+        name: mrs-www-prod
+        ports:
+        - containerPort: 80
+          name: http
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30    
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: mrs-www-prod
+  name: mrs-www-prod
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: mrs-www-prod
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: networking.k8s.io/v1  
+kind: Ingress
+metadata:
+  name: mrs-www-prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+    kubernetes.io/ingress.class: contour
+    kubernetes.io/tls-acme: "true"
+  labels:
+    app: mrs-www-prod
+spec:
+  rules:
+  - host: "www.mikeroysoft.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: mrs-www-prod
+            port:
+              number: 80
+  tls:
+  - hosts:
+    - www.mikeroysoft.com
+    secretName: mrs-www-prod            

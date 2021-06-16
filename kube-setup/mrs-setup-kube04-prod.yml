@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mrs-hugo-prod
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: mrs-hugo-prod
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mrs-hugo-prod
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mrs-hugo-prod
+  template:
+    metadata:
+      labels:
+        app: mrs-hugo-prod
+    spec:
+      containers:
+      - name: mrs-hugo-www
+        image: mikeroysoft/mrs-hugo:stable
+        ports:
+        - containerPort: 80
