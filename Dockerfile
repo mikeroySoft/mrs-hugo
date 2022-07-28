@@ -1,5 +1,5 @@
 # start with an image that has the hugo binary installed
-FROM mikeroysoft/hugo-builder:amd-v4 as site
+FROM mikeroysoft/hugo-builder:arm-latest as site
 # set the working directory so we have a consistent place
 # the site will be built
 WORKDIR /app
