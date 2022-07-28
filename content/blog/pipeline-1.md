@@ -15,11 +15,11 @@ type = "post"
 
 As I mentioned in **[this post](/blog/go-for-hugo/)**, I had the desire to move off of Wordpress for some time. Maintaining it just was getting boring.
 
-My wp installation, which was on an Ubuntu VM 'in the cloud' with a seperate VM for the db, kept running into issues. The docker image cache would fill up, and it kept getting hacked. Seemed like a great exercise to move my blog to something more 'cloud native' by way of using containers, kubernetes, and a continuously deploying pipeline.
+My wp installation, which was on an Ubuntu VM 'in the cloud' with a separate VM for the db, kept running into issues. The docker image cache would fill up, and it kept getting hacked. Seemed like a great exercise to move my blog to something more 'cloud native' by way of using containers, Kubernetes, and a continuously deploying pipeline.
 
-With this setup, updates and rollbacks are a breeze, content and delivery are secure without relying on a big CDN like CloudFlare and, it intrinsicly doesn't need 'backups' becuase all the content is just a git repo on github and on my various machines. Happy days!
+With this setup, updates and rollbacks are a breeze, content and delivery are secure without relying on a big CDN like CloudFlare and, it intrinsically doesn't need 'backups' because all the content is just a git repo on GitHub and on my various machines. Happy days!
 
-Ok, for anyone interested as well, as for my own sanity by having it all writen down, I'll document a rundown of how this blog is put together. I'll break the content up in a few posts to seperate some of the subject areas, lead with a deep enough overview to understand the system as whole before getting into the moving pieces.
+Ok, for anyone interested as well, as for my own sanity by having it all written down, I'll document a rundown of how this blog is put together. I'll break the content up in a few posts to separate some of the subject areas, lead with a deep enough overview to understand the system as whole before getting into the moving pieces.
 
 I'll reference the sources where I put this all together, and shed some comments on what I had to do to get things working as described.
 
@@ -37,13 +37,13 @@ Dev is deployed using docker to my desktop, staging and production are both on D
 
 #### Docker
 
-The docker image contains the entire site, including all staticly generated content, and sits behind a load balancer. The LB is exposed to the world with a public IP via an nginx Ingress controller. I use LetsEncrypt to provide HTTPS certificates on the Ingress side so the site works without security warnings.
+The docker image contains the entire site, including all statically generated content, and sits behind a load balancer. The LB is exposed to the world with a public IP via an nginx Ingress controller. I use LetsEncrypt to provide HTTPS certificates on the Ingress side so the site works without security warnings.
 
 This lets me keep the domain and https in a 'good state' while allowing me to update the container images behind the LB at will without disruption or re-cert'ing.
 
 #### Content
 
-All content is in a seperate github repo that gets pulled into Hugo's build process (hugo-extended) as the docker image is built. In more specific terms, 'content' is a folder in the root of the 'app'; that folder is a git submodule linking to the 'content' repo. On build it does a *git submodule update --remote* to pull in the other repos, which also includes the Hugo Theme. (Pretty handy to keep that always up to date with it's upstream source!). The config.toml file is configured to look at this path for the markdown content it uses to build the site.
+All content is in a separate github repo that gets pulled into Hugo's build process (hugo-extended) as the docker image is built. In more specific terms, 'content' is a folder in the root of the 'app'; that folder is a git submodule linking to the 'content' repo. On build it does a *git submodule update --remote* to pull in the other repos, which also includes the Hugo Theme. (Pretty handy to keep that always up to date with it's upstream source!). The config.toml file is configured to look at this path for the markdown content it uses to build the site.
 
 #### Build Process
 
